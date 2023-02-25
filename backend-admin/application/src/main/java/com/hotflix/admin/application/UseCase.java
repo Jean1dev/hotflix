@@ -1,10 +1,6 @@
 package com.hotflix.admin.application;
 
-import com.hotflix.admin.domain.Category;
+public abstract class UseCase<IN, OUT> {
 
-public class UseCase {
-    public static void main(String[] args) {
-        Category category = new Category();
-        System.out.println("Hello world!");
-    }
+    public abstract OUT execute(IN in);
 }
