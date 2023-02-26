@@ -1,10 +1,12 @@
 package com.hotflix.admin.infra;
 
-import com.hotflix.admin.application.UseCase;
+import com.hotflix.admin.infra.config.WebServerConfiguration;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
-        UseCase useCase = new UseCase();
-        System.out.println("Hello world!");
+        SpringApplication.run(WebServerConfiguration.class, args);
     }
 }
