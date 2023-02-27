@@ -32,6 +32,26 @@ public class Category extends AggregateRoot<CategoryId> {
         this.deletedAt = deletedAt;
     }
 
+    public static Category with(
+            final CategoryId from,
+            final String name,
+            final String description,
+            final boolean active,
+            final Instant createdAt,
+            final Instant updatedAt,
+            final Instant deletedAt
+    ) {
+        return new Category(
+                from,
+                name,
+                description,
+                active,
+                createdAt,
+                updatedAt,
+                deletedAt
+        );
+    }
+
     public Category update(final String name, final String description, final boolean active) {
         this.name = name;
         this.description = description;
@@ -56,7 +76,7 @@ public class Category extends AggregateRoot<CategoryId> {
     }
 
     public static Category newCategory(String expectedName, String expectedDescription, boolean expectedIsActive) {
-        return new Category(
+        return with(
                 CategoryId.unique(),
                 expectedName,
                 expectedDescription,
