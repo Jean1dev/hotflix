@@ -1,4 +1,8 @@
+package com.hotflix.admin;
+
+import com.hotflix.admin.MySQLCleanUpExtension;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
@@ -18,7 +22,7 @@ import java.lang.annotation.*;
         }
 )
 @DataJpaTest
-//@ExtendWith(MySQLCleanUpExtension.class)
+@ExtendWith(MySQLCleanUpExtension.class)
 @Tag("integrationTest")
 public @interface MySQLGatewayTest {
 }

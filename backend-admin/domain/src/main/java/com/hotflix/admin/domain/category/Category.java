@@ -1,13 +1,14 @@
 package com.hotflix.admin.domain.category;
 
 import com.hotflix.admin.domain.AggregateRoot;
+import com.hotflix.admin.domain.utils.InstantUtils;
 import com.hotflix.admin.domain.validation.ValidationHandler;
 import com.hotflix.admin.domain.validation.handler.ThrowsValidationHandler;
 
 import java.time.Instant;
 import java.util.Objects;
 
-public class Category extends AggregateRoot<CategoryId> {
+public class Category extends AggregateRoot<CategoryId> implements Cloneable {
     private String name;
     private String description;
     private boolean active;
@@ -16,24 +17,32 @@ public class Category extends AggregateRoot<CategoryId> {
     private Instant deletedAt;
 
     private Category(
-            final CategoryId id,
-            final String name,
-            final String description,
-            final boolean active,
-            final Instant createdAt,
-            final Instant updatedAt,
-            final Instant deletedAt) {
-        super(id);
-        this.name = name;
-        this.description = description;
-        this.active = active;
-        this.createdAt = Objects.requireNonNull(createdAt, "'createdAt' should not be null");
-        this.updatedAt = Objects.requireNonNull(updatedAt, "'updatedAt' should not be null");
-        this.deletedAt = deletedAt;
+            final CategoryId anId,
+            final String aName,
+            final String aDescription,
+            final boolean isActive,
+            final Instant aCreationDate,
+            final Instant aUpdateDate,
+            final Instant aDeleteDate
+    ) {
+        super(anId);
+        this.name = aName;
+        this.description = aDescription;
+        this.active = isActive;
+        this.createdAt = Objects.requireNonNull(aCreationDate, "'createdAt' should not be null");
+        this.updatedAt = Objects.requireNonNull(aUpdateDate, "'updatedAt' should not be null");
+        this.deletedAt = aDeleteDate;
+    }
+
+    public static Category newCategory(final String aName, final String aDescription, final boolean isActive) {
+        final var id = CategoryId.unique();
+        final var now = InstantUtils.now();
+        final var deletedAt = isActive ? null : now;
+        return new Category(id, aName, aDescription, isActive, now, now, deletedAt);
     }
 
     public static Category with(
-            final CategoryId from,
+            final CategoryId anId,
             final String name,
             final String description,
             final boolean active,
@@ -42,7 +51,7 @@ public class Category extends AggregateRoot<CategoryId> {
             final Instant deletedAt
     ) {
         return new Category(
-                from,
+                anId,
                 name,
                 description,
                 active,
@@ -52,39 +61,63 @@ public class Category extends AggregateRoot<CategoryId> {
         );
     }
 
-    public Category update(final String name, final String description, final boolean active) {
-        this.name = name;
-        this.description = description;
+    public static Category with(final Category aCategory) {
+        return with(
+                aCategory.getId(),
+                aCategory.name,
+                aCategory.description,
+                aCategory.isActive(),
+                aCategory.createdAt,
+                aCategory.updatedAt,
+                aCategory.deletedAt
+        );
+    }
 
-        if (active) {
-            activate();
-        } else {
-            desactivate();
+    @Override
+    public void validate(final ValidationHandler handler) {
+        if (Objects.isNull(handler)){
+            new CategoryValidator(this, new ThrowsValidationHandler()).validate();
+            return;
         }
 
+        new CategoryValidator(this, handler).validate();
+    }
+
+    public Category activate() {
+        this.deletedAt = null;
+        this.active = true;
+        this.updatedAt = InstantUtils.now();
+        return this;
+    }
+
+    public Category deactivate() {
+        if (getDeletedAt() == null) {
+            this.deletedAt = InstantUtils.now();
+        }
+
+        this.active = false;
+        this.updatedAt = InstantUtils.now();
+        return this;
+    }
+
+    public Category update(
+            final String aName,
+            final String aDescription,
+            final boolean isActive
+    ) {
+        if (isActive) {
+            activate();
+        } else {
+            deactivate();
+        }
+        this.name = aName;
+        this.description = aDescription;
         this.updatedAt = Instant.now();
         return this;
     }
 
-    private void desactivate() {
-        this.deletedAt = Instant.now();
-        this.active = false;
-    }
-
-    private void activate() {
-        this.active = true;
-    }
-
-    public static Category newCategory(String expectedName, String expectedDescription, boolean expectedIsActive) {
-        return with(
-                CategoryId.unique(),
-                expectedName,
-                expectedDescription,
-                expectedIsActive,
-                Instant.now(),
-                Instant.now(),
-                Instant.now()
-        );
+    public CategoryId getId() {
+        return id;
     }
 
     public String getName() {
@@ -112,10 +145,11 @@ public class Category extends AggregateRoot<CategoryId> {
     }
 
     @Override
-    public void validate(ValidationHandler handler) {
-        if (Objects.isNull(handler))
-            handler = new ThrowsValidationHandler();
-
-        new CategoryValidator(this, handler).validate();
+    public Category clone() {
+        try {
+            return (Category) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }
