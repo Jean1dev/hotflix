@@ -1,6 +1,5 @@
 package com.hotflix.admin;
 
-import com.hotflix.admin.MySQLCleanUpExtension;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -13,7 +12,7 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-@ActiveProfiles("test-integration")
+@ActiveProfiles("test")
 @ComponentScan(
         basePackages = "com.hotflix.admin",
         useDefaultFilters = false,

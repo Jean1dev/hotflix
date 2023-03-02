@@ -1,5 +1,7 @@
 package com.hotflix.admin.infra.config.usecases;
 
+import com.hotflix.admin.application.category.create.CreateCategoryUseCase;
+import com.hotflix.admin.application.category.create.DefaultCreateCategoryUseCase;
 import com.hotflix.admin.application.category.delete.DefaultDeleteCategoryUseCase;
 import com.hotflix.admin.application.category.delete.DeleteCategoryUseCase;
 import com.hotflix.admin.application.category.retrieve.get.DefaultGetCategoryByIdUseCase;
@@ -22,8 +24,8 @@ public class CategoryUseCaseConfig {
     }
 
     @Bean
-    public CreateCategoryService createCategoryUseCase() {
-        return new DefaultCreateCategoryService(categoryGateway);
+    public CreateCategoryUseCase createCategoryUseCase() {
+        return new DefaultCreateCategoryUseCase(categoryGateway);
     }
 
     @Bean

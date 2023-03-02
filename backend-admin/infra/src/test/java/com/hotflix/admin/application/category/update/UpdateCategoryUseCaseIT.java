@@ -1,12 +1,11 @@
 package com.hotflix.admin.application.category.update;
 
-import com.fullcycle.admin.catalogo.IntegrationTest;
-import com.fullcycle.admin.catalogo.domain.category.Category;
-import com.fullcycle.admin.catalogo.domain.category.CategoryGateway;
-import com.fullcycle.admin.catalogo.domain.exceptions.DomainException;
-import com.fullcycle.admin.catalogo.domain.exceptions.NotFoundException;
-import com.fullcycle.admin.catalogo.infrastructure.category.persistence.CategoryJpaEntity;
-import com.fullcycle.admin.catalogo.infrastructure.category.persistence.CategoryRepository;
+import com.hotflix.admin.IntegrationTest;
+import com.hotflix.admin.domain.category.Category;
+import com.hotflix.admin.domain.category.CategoryGateway;
+import com.hotflix.admin.domain.exceptions.NotFoundException;
+import com.hotflix.admin.infra.category.persistence.CategoryJpaEntity;
+import com.hotflix.admin.infra.category.persistence.CategoryRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -23,7 +22,7 @@ import static org.mockito.Mockito.times;
 public class UpdateCategoryUseCaseIT {
 
     @Autowired
-    private UpdateCategoryUseCase useCase;
+    private UpdateCategoryService useCase;
 
     @Autowired
     private CategoryRepository categoryRepository;

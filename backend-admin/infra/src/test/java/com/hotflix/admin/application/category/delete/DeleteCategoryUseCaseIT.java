@@ -1,11 +1,11 @@
 package com.hotflix.admin.application.category.delete;
 
-import com.fullcycle.admin.catalogo.IntegrationTest;
-import com.fullcycle.admin.catalogo.domain.category.Category;
-import com.fullcycle.admin.catalogo.domain.category.CategoryGateway;
-import com.fullcycle.admin.catalogo.domain.category.CategoryID;
-import com.fullcycle.admin.catalogo.infrastructure.category.persistence.CategoryJpaEntity;
-import com.fullcycle.admin.catalogo.infrastructure.category.persistence.CategoryRepository;
+import com.hotflix.admin.IntegrationTest;
+import com.hotflix.admin.domain.category.Category;
+import com.hotflix.admin.domain.category.CategoryGateway;
+import com.hotflix.admin.domain.category.CategoryId;
+import com.hotflix.admin.infra.category.persistence.CategoryJpaEntity;
+import com.hotflix.admin.infra.category.persistence.CategoryRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -46,7 +46,7 @@ public class DeleteCategoryUseCaseIT {
 
     @Test
     public void givenAInvalidId_whenCallsDeleteCategory_shouldBeOK() {
-        final var expectedId = CategoryID.from("123");
+        final var expectedId = CategoryId.from("123");
 
         Assertions.assertEquals(0, categoryRepository.count());
 

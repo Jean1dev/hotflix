@@ -4,10 +4,14 @@ import com.hotflix.admin.domain.category.Category;
 import com.hotflix.admin.domain.category.CategoryId;
 
 public record UpdateCategoryOutput(
-        CategoryId id
+        String id
 ) {
 
-    public static UpdateCategoryOutput from(final Category category) {
-        return new UpdateCategoryOutput(category.getId());
+    public static UpdateCategoryOutput from(final String anId) {
+        return new UpdateCategoryOutput(anId);
+    }
+
+    public static UpdateCategoryOutput from(final Category aCategory) {
+        return new UpdateCategoryOutput(aCategory.getId().getValue());
     }
 }

@@ -1,10 +1,10 @@
 package com.hotflix.admin.application.category.retrieve.list;
 
-import com.fullcycle.admin.catalogo.IntegrationTest;
-import com.fullcycle.admin.catalogo.domain.category.Category;
-import com.fullcycle.admin.catalogo.domain.pagination.SearchQuery;
-import com.fullcycle.admin.catalogo.infrastructure.category.persistence.CategoryJpaEntity;
-import com.fullcycle.admin.catalogo.infrastructure.category.persistence.CategoryRepository;
+import com.hotflix.admin.IntegrationTest;
+import com.hotflix.admin.domain.category.Category;
+import com.hotflix.admin.domain.category.CategoryQuery;
+import com.hotflix.admin.infra.category.persistence.CategoryJpaEntity;
+import com.hotflix.admin.infra.category.persistence.CategoryRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -51,11 +51,11 @@ public class ListCategoriesUseCaseIT {
         final var expectedTotal = 0;
 
         final var aQuery =
-                new SearchQuery(expectedPage, expectedPerPage, expectedTerms, expectedSort, expectedDirection);
+                new CategoryQuery(expectedPage, expectedPerPage, expectedTerms, expectedSort, expectedDirection);
 
         final var actualResult = useCase.execute(aQuery);
 
-        Assertions.assertEquals(expectedItemsCount, actualResult.items().size());
+        Assertions.assertEquals(expectedItemsCount, actualResult.itens().size());
         Assertions.assertEquals(expectedPage, actualResult.currentPage());
         Assertions.assertEquals(expectedPerPage, actualResult.perPage());
         Assertions.assertEquals(expectedTotal, actualResult.total());
@@ -82,15 +82,15 @@ public class ListCategoriesUseCaseIT {
         final var expectedDirection = "asc";
 
         final var aQuery =
-                new SearchQuery(expectedPage, expectedPerPage, expectedTerms, expectedSort, expectedDirection);
+                new CategoryQuery(expectedPage, expectedPerPage, expectedTerms, expectedSort, expectedDirection);
 
         final var actualResult = useCase.execute(aQuery);
 
-        Assertions.assertEquals(expectedItemsCount, actualResult.items().size());
+        Assertions.assertEquals(expectedItemsCount, actualResult.itens().size());
         Assertions.assertEquals(expectedPage, actualResult.currentPage());
         Assertions.assertEquals(expectedPerPage, actualResult.perPage());
         Assertions.assertEquals(expectedTotal, actualResult.total());
-        Assertions.assertEquals(expectedCategoryName, actualResult.items().get(0).name());
+        Assertions.assertEquals(expectedCategoryName, actualResult.itens().get(0).name());
     }
 
     @ParameterizedTest
@@ -112,15 +112,15 @@ public class ListCategoriesUseCaseIT {
         final var expectedTerms = "";
 
         final var aQuery =
-                new SearchQuery(expectedPage, expectedPerPage, expectedTerms, expectedSort, expectedDirection);
+                new CategoryQuery(expectedPage, expectedPerPage, expectedTerms, expectedSort, expectedDirection);
 
         final var actualResult = useCase.execute(aQuery);
 
-        Assertions.assertEquals(expectedItemsCount, actualResult.items().size());
+        Assertions.assertEquals(expectedItemsCount, actualResult.itens().size());
         Assertions.assertEquals(expectedPage, actualResult.currentPage());
         Assertions.assertEquals(expectedPerPage, actualResult.perPage());
         Assertions.assertEquals(expectedTotal, actualResult.total());
-        Assertions.assertEquals(expectedCategoryName, actualResult.items().get(0).name());
+        Assertions.assertEquals(expectedCategoryName, actualResult.itens().get(0).name());
     }
 
     @ParameterizedTest
@@ -142,18 +142,18 @@ public class ListCategoriesUseCaseIT {
         final var expectedTerms = "";
 
         final var aQuery =
-                new SearchQuery(expectedPage, expectedPerPage, expectedTerms, expectedSort, expectedDirection);
+                new CategoryQuery(expectedPage, expectedPerPage, expectedTerms, expectedSort, expectedDirection);
 
         final var actualResult = useCase.execute(aQuery);
 
-        Assertions.assertEquals(expectedItemsCount, actualResult.items().size());
+        Assertions.assertEquals(expectedItemsCount, actualResult.itens().size());
         Assertions.assertEquals(expectedPage, actualResult.currentPage());
         Assertions.assertEquals(expectedPerPage, actualResult.perPage());
         Assertions.assertEquals(expectedTotal, actualResult.total());
 
         int index = 0;
         for (final String expectedName : expectedCategoriesName.split(";")) {
-            final String actualName = actualResult.items().get(index).name();
+            final String actualName = actualResult.itens().get(index).name();
             Assertions.assertEquals(expectedName, actualName);
             index++;
         }

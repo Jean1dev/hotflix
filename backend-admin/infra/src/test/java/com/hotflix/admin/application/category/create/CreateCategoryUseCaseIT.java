@@ -17,7 +17,7 @@ import static org.mockito.Mockito.times;
 public class CreateCategoryUseCaseIT {
 
     @Autowired
-    private CreateCategoryService useCase;
+    private CreateCategoryUseCase useCase;
 
     @Autowired
     private CategoryRepository categoryRepository;
