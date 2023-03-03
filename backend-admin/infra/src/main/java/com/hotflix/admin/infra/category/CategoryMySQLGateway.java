@@ -12,7 +12,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 import static com.hotflix.admin.infra.utils.SpecificationUtils.like;
 
@@ -72,17 +74,16 @@ public class CategoryMySQLGateway implements CategoryGateway {
                 pageResult.map(CategoryJpaEntity::toAggregate).toList()
         );
     }
-//
-//    @Override
-//    public List<CategoryId> existsByIds(Iterable<CategoryId> categoryIDs) {
-//        return null;
-//        final var ids = StreamSupport.stream(categoryIDs.spliterator(), false)
-//                .map(CategoryID::getValue)
-//                .toList();
-//        return this.repository.existsByIds(ids).stream()
-//                .map(CategoryID::from)
-//                .toList();
-//    }
+
+    @Override
+    public List<CategoryId> existsByIds(Iterable<CategoryId> categoryIDs) {
+        final var ids = StreamSupport.stream(categoryIDs.spliterator(), false)
+                .map(CategoryId::getValue)
+                .toList();
+        return this.repository.existsByIds(ids).stream()
+                .map(CategoryId::from)
+                .toList();
+    }
 
     private Category save(final Category aCategory) {
         return this.repository.save(CategoryJpaEntity.from(aCategory)).toAggregate();

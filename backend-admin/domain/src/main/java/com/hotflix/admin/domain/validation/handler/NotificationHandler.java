@@ -11,57 +11,49 @@ public class NotificationHandler implements ValidationHandler {
 
     private final List<DomainError> errors;
 
-    private NotificationHandler(List<DomainError> errors) {
+    private NotificationHandler(final List<DomainError> errors) {
         this.errors = errors;
     }
-
-    public static NotificationHandler create(final DomainError error) {
-        return new NotificationHandler(new ArrayList<>()).append(error);
-    }
-
 
     public static NotificationHandler create() {
         return new NotificationHandler(new ArrayList<>());
     }
 
+    public static NotificationHandler create(final Throwable t) {
+        return create(new DomainError(t.getMessage()));
+    }
 
-    public static NotificationHandler create(Throwable throwable) {
-        return new NotificationHandler(new ArrayList<>()).append(new DomainError(throwable.getMessage()));
+    public static NotificationHandler create(final DomainError anError) {
+        return new NotificationHandler(new ArrayList<>()).append(anError);
     }
 
     @Override
-    public NotificationHandler append(DomainError error) {
-        this.errors.add(error);
+    public NotificationHandler append(final DomainError anError) {
+        this.errors.add(anError);
         return this;
     }
 
     @Override
-    public NotificationHandler append(ValidationHandler another) {
-        this.errors.addAll(another.getErrors());
+    public NotificationHandler append(final ValidationHandler anHandler) {
+        this.errors.addAll(anHandler.getErrors());
         return this;
     }
 
     @Override
-    public NotificationHandler validate(Validation validation) {
+    public <T> T validate(final Validation<T> aValidation) {
         try {
-            validation.validate();
-        } catch (final DomainException domainException) {
-            this.errors.add(new DomainError(domainException.getMessage()));
-        } catch (final Throwable throwable) {
-            this.errors.add(new DomainError(throwable.getMessage()));
+            return aValidation.validate();
+        } catch (final DomainException ex) {
+            this.errors.addAll(ex.getErrors());
+        } catch (final Throwable t) {
+            this.errors.add(new DomainError(t.getMessage()));
         }
-
-        return this;
-    }
-
-    @Override
-    public boolean hasError() {
-        return ValidationHandler.super.hasError();
+        return null;
     }
 
     @Override
     public List<DomainError> getErrors() {
-        return errors;
+        return this.errors;
     }
 
 }
