@@ -1,9 +1,9 @@
 package com.hotflix.admin.infra.category.presenters;
 
-import com.fullcycle.admin.catalogo.application.category.retrieve.get.CategoryOutput;
-import com.fullcycle.admin.catalogo.application.category.retrieve.list.CategoryListOutput;
-import com.fullcycle.admin.catalogo.infrastructure.category.models.CategoryListResponse;
-import com.fullcycle.admin.catalogo.infrastructure.category.models.CategoryResponse;
+import com.hotflix.admin.application.category.retrieve.get.CategoryOutput;
+import com.hotflix.admin.application.category.retrieve.list.CategoryListOutput;
+import com.hotflix.admin.infra.category.models.CategoryListResponse;
+import com.hotflix.admin.infra.category.models.CategoryResponse;
 
 public interface CategoryApiPresenter {
 

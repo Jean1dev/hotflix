@@ -6,15 +6,22 @@ import java.util.List;
 
 public class DomainException extends NoStackTraceException {
 
-    private final List<DomainError> errors;
+    protected final List<DomainError> errors;
 
-
-    protected DomainException(final String message, List<DomainError> errors) {
-        super(message);
-        this.errors = errors;
+    protected DomainException(final String aMessage, final List<DomainError> anErrors) {
+        super(aMessage);
+        this.errors = anErrors;
     }
 
-    public static DomainException with(final List<DomainError> errors) {
-        return new DomainException("", errors);
+    public static DomainException with(final DomainError anErrors) {
+        return new DomainException(anErrors.message(), List.of(anErrors));
+    }
+
+    public static DomainException with(final List<DomainError> anErrors) {
+        return new DomainException("", anErrors);
+    }
+
+    public List<DomainError> getErrors() {
+        return errors;
     }
 }
