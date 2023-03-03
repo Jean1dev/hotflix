@@ -18,7 +18,6 @@ import com.hotflix.admin.domain.exceptions.NotFoundException;
 import com.hotflix.admin.domain.pagination.Pagination;
 import com.hotflix.admin.domain.validation.DomainError;
 import com.hotflix.admin.domain.validation.handler.NotificationHandler;
-import com.hotflix.admin.infra.api.CategoryAPI;
 import com.hotflix.admin.infra.category.models.CreateCategoryRequest;
 import com.hotflix.admin.infra.category.models.UpdateCategoryRequest;
 import org.junit.jupiter.api.Test;
