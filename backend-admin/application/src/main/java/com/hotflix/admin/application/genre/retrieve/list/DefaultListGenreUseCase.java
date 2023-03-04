@@ -1,8 +1,8 @@
 package com.hotflix.admin.application.genre.retrieve.list;
 
-import com.fullcycle.admin.catalogo.domain.genre.GenreGateway;
-import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
-import com.fullcycle.admin.catalogo.domain.pagination.SearchQuery;
+import com.hotflix.admin.domain.genre.GenreGateway;
+import com.hotflix.admin.domain.pagination.Pagination;
+import com.hotflix.admin.domain.pagination.SearchQuery;
 
 import java.util.Objects;
 

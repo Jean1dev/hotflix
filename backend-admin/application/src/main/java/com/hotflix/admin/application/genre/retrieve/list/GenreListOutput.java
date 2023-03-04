@@ -1,7 +1,7 @@
 package com.hotflix.admin.application.genre.retrieve.list;
 
-import com.fullcycle.admin.catalogo.domain.category.CategoryID;
-import com.fullcycle.admin.catalogo.domain.genre.Genre;
+import com.hotflix.admin.domain.category.CategoryId;
+import com.hotflix.admin.domain.genre.Genre;
 
 import java.time.Instant;
 import java.util.List;
@@ -21,7 +21,7 @@ public record GenreListOutput(
                 aGenre.getName(),
                 aGenre.isActive(),
                 aGenre.getCategories().stream()
-                        .map(CategoryID::getValue)
+                        .map(CategoryId::getValue)
                         .toList(),
                 aGenre.getCreatedAt(),
                 aGenre.getDeletedAt()

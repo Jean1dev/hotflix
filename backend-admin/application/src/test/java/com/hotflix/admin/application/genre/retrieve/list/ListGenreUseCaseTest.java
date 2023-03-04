@@ -1,10 +1,10 @@
 package com.hotflix.admin.application.genre.retrieve.list;
 
-import com.fullcycle.admin.catalogo.application.UseCaseTest;
-import com.fullcycle.admin.catalogo.domain.genre.Genre;
-import com.fullcycle.admin.catalogo.domain.genre.GenreGateway;
-import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
-import com.fullcycle.admin.catalogo.domain.pagination.SearchQuery;
+import com.hotflix.admin.application.UseCaseTest;
+import com.hotflix.admin.domain.genre.Genre;
+import com.hotflix.admin.domain.genre.GenreGateway;
+import com.hotflix.admin.domain.pagination.Pagination;
+import com.hotflix.admin.domain.pagination.SearchQuery;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -70,7 +70,7 @@ public class ListGenreUseCaseTest extends UseCaseTest {
         Assertions.assertEquals(expectedPage, actualOutput.currentPage());
         Assertions.assertEquals(expectedPerPage, actualOutput.perPage());
         Assertions.assertEquals(expectedTotal, actualOutput.total());
-        Assertions.assertEquals(expectedItems, actualOutput.items());
+        Assertions.assertEquals(expectedItems, actualOutput.itens());
 
         Mockito.verify(genreGateway, times(1)).findAll(eq(aQuery));
     }
@@ -109,7 +109,7 @@ public class ListGenreUseCaseTest extends UseCaseTest {
         Assertions.assertEquals(expectedPage, actualOutput.currentPage());
         Assertions.assertEquals(expectedPerPage, actualOutput.perPage());
         Assertions.assertEquals(expectedTotal, actualOutput.total());
-        Assertions.assertEquals(expectedItems, actualOutput.items());
+        Assertions.assertEquals(expectedItems, actualOutput.itens());
 
         Mockito.verify(genreGateway, times(1)).findAll(eq(aQuery));
     }
