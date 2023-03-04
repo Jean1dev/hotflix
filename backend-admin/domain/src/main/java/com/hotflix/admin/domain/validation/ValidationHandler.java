@@ -4,17 +4,17 @@ import java.util.List;
 
 public interface ValidationHandler {
 
-    ValidationHandler append(DomainError error);
+    ValidationHandler append(DomainError anError);
 
-    ValidationHandler append(ValidationHandler another);
+    ValidationHandler append(ValidationHandler anHandler);
 
-    ValidationHandler validate(Validation validation);
-
-    default boolean hasError() {
-        return getErrors() != null && !(getErrors().size() == 0);
-    }
+    <T> T validate(Validation<T> aValidation);
 
     List<DomainError> getErrors();
+
+    default boolean hasError() {
+        return getErrors() != null && !getErrors().isEmpty();
+    }
 
     default DomainError firstError() {
         if (getErrors() != null && !getErrors().isEmpty()) {
@@ -24,7 +24,7 @@ public interface ValidationHandler {
         }
     }
 
-    interface Validation {
-        void validate();
+    interface Validation<T> {
+        T validate();
     }
 }
