@@ -1,13 +1,13 @@
 package com.hotflix.admin.infra.genre;
 
-import com.fullcycle.admin.catalogo.domain.genre.Genre;
-import com.fullcycle.admin.catalogo.domain.genre.GenreGateway;
-import com.fullcycle.admin.catalogo.domain.genre.GenreID;
-import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
-import com.fullcycle.admin.catalogo.domain.pagination.SearchQuery;
-import com.fullcycle.admin.catalogo.infrastructure.genre.persistence.GenreJpaEntity;
-import com.fullcycle.admin.catalogo.infrastructure.genre.persistence.GenreRepository;
-import com.fullcycle.admin.catalogo.infrastructure.utils.SpecificationUtils;
+import com.hotflix.admin.domain.genre.Genre;
+import com.hotflix.admin.domain.genre.GenreGateway;
+import com.hotflix.admin.domain.genre.GenreID;
+import com.hotflix.admin.domain.pagination.Pagination;
+import com.hotflix.admin.domain.pagination.SearchQuery;
+import com.hotflix.admin.infra.genre.persistence.GenreJpaEntity;
+import com.hotflix.admin.infra.genre.persistence.GenreRepository;
+import com.hotflix.admin.infra.utils.SpecificationUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
