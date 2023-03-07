@@ -1,12 +1,11 @@
 package com.hotflix.admin.e2e.genre;
 
-import com.fullcycle.admin.catalogo.ApiTest;
-import com.fullcycle.admin.catalogo.E2ETest;
-import com.fullcycle.admin.catalogo.domain.category.CategoryID;
-import com.fullcycle.admin.catalogo.domain.genre.GenreID;
-import com.fullcycle.admin.catalogo.e2e.MockDsl;
-import com.fullcycle.admin.catalogo.infrastructure.genre.models.UpdateGenreRequest;
-import com.fullcycle.admin.catalogo.infrastructure.genre.persistence.GenreRepository;
+import com.hotflix.admin.E2ETest;
+import com.hotflix.admin.domain.category.CategoryId;
+import com.hotflix.admin.domain.genre.GenreID;
+import com.hotflix.admin.e2e.MockDsl;
+import com.hotflix.admin.infra.genre.models.UpdateGenreRequest;
+import com.hotflix.admin.infra.genre.persistence.GenreRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,7 +58,7 @@ public class GenreE2ETest implements MockDsl {
 
         final var expectedName = "Ação";
         final var expectedIsActive = true;
-        final var expectedCategories = List.<CategoryID>of();
+        final var expectedCategories = List.<CategoryId>of();
 
         final var actualId = givenAGenre(expectedName, expectedIsActive, expectedCategories);
 
@@ -116,31 +115,31 @@ public class GenreE2ETest implements MockDsl {
                 .andExpect(jsonPath("$.current_page", equalTo(0)))
                 .andExpect(jsonPath("$.per_page", equalTo(1)))
                 .andExpect(jsonPath("$.total", equalTo(3)))
-                .andExpect(jsonPath("$.items", hasSize(1)))
-                .andExpect(jsonPath("$.items[0].name", equalTo("Ação")));
+                .andExpect(jsonPath("$.itens", hasSize(1)))
+                .andExpect(jsonPath("$.itens[0].name", equalTo("Ação")));
 
         listGenres(1, 1)
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.current_page", equalTo(1)))
                 .andExpect(jsonPath("$.per_page", equalTo(1)))
                 .andExpect(jsonPath("$.total", equalTo(3)))
-                .andExpect(jsonPath("$.items", hasSize(1)))
-                .andExpect(jsonPath("$.items[0].name", equalTo("Drama")));
+                .andExpect(jsonPath("$.itens", hasSize(1)))
+                .andExpect(jsonPath("$.itens[0].name", equalTo("Drama")));
 
         listGenres(2, 1)
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.current_page", equalTo(2)))
                 .andExpect(jsonPath("$.per_page", equalTo(1)))
                 .andExpect(jsonPath("$.total", equalTo(3)))
-                .andExpect(jsonPath("$.items", hasSize(1)))
-                .andExpect(jsonPath("$.items[0].name", equalTo("Esportes")));
+                .andExpect(jsonPath("$.itens", hasSize(1)))
+                .andExpect(jsonPath("$.itens[0].name", equalTo("Esportes")));
 
         listGenres(3, 1)
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.current_page", equalTo(3)))
                 .andExpect(jsonPath("$.per_page", equalTo(1)))
                 .andExpect(jsonPath("$.total", equalTo(3)))
-                .andExpect(jsonPath("$.items", hasSize(0)));
+                .andExpect(jsonPath("$.itens", hasSize(0)));
     }
 
     @Test
@@ -157,8 +156,8 @@ public class GenreE2ETest implements MockDsl {
                 .andExpect(jsonPath("$.current_page", equalTo(0)))
                 .andExpect(jsonPath("$.per_page", equalTo(1)))
                 .andExpect(jsonPath("$.total", equalTo(1)))
-                .andExpect(jsonPath("$.items", hasSize(1)))
-                .andExpect(jsonPath("$.items[0].name", equalTo("Drama")));
+                .andExpect(jsonPath("$.itens", hasSize(1)))
+                .andExpect(jsonPath("$.itens[0].name", equalTo("Drama")));
     }
 
     @Test
@@ -175,10 +174,10 @@ public class GenreE2ETest implements MockDsl {
                 .andExpect(jsonPath("$.current_page", equalTo(0)))
                 .andExpect(jsonPath("$.per_page", equalTo(3)))
                 .andExpect(jsonPath("$.total", equalTo(3)))
-                .andExpect(jsonPath("$.items", hasSize(3)))
-                .andExpect(jsonPath("$.items[0].name", equalTo("Esportes")))
-                .andExpect(jsonPath("$.items[1].name", equalTo("Drama")))
-                .andExpect(jsonPath("$.items[2].name", equalTo("Ação")));
+                .andExpect(jsonPath("$.itens", hasSize(3)))
+                .andExpect(jsonPath("$.itens[0].name", equalTo("Esportes")))
+                .andExpect(jsonPath("$.itens[1].name", equalTo("Drama")))
+                .andExpect(jsonPath("$.itens[2].name", equalTo("Ação")));
     }
 
     @Test
@@ -199,7 +198,7 @@ public class GenreE2ETest implements MockDsl {
         Assertions.assertEquals(expectedName, actualGenre.name());
         Assertions.assertTrue(
                 expectedCategories.size() == actualGenre.categories().size()
-                        && mapTo(expectedCategories, CategoryID::getValue).containsAll(actualGenre.categories())
+                        && mapTo(expectedCategories, CategoryId::getValue).containsAll(actualGenre.categories())
         );
         Assertions.assertEquals(expectedIsActive, actualGenre.active());
         Assertions.assertNotNull(actualGenre.createdAt());
@@ -213,7 +212,7 @@ public class GenreE2ETest implements MockDsl {
         Assertions.assertEquals(0, genreRepository.count());
 
         final var aRequest = get("/genres/123")
-                .with(ApiTest.ADMIN_JWT)
+                //.with(ApiTest.ADMIN_JWT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON);
 
@@ -237,7 +236,7 @@ public class GenreE2ETest implements MockDsl {
 
         final var aRequestBody = new UpdateGenreRequest(
                 expectedName,
-                mapTo(expectedCategories, CategoryID::getValue),
+                mapTo(expectedCategories, CategoryId::getValue),
                 expectedIsActive
         );
 
@@ -272,7 +271,7 @@ public class GenreE2ETest implements MockDsl {
 
         final var aRequestBody = new UpdateGenreRequest(
                 expectedName,
-                mapTo(expectedCategories, CategoryID::getValue),
+                mapTo(expectedCategories, CategoryId::getValue),
                 expectedIsActive
         );
 
@@ -299,13 +298,13 @@ public class GenreE2ETest implements MockDsl {
 
         final var expectedName = "Ação";
         final var expectedIsActive = true;
-        final var expectedCategories = List.<CategoryID>of();
+        final var expectedCategories = List.<CategoryId>of();
 
         final var actualId = givenAGenre(expectedName, false, expectedCategories);
 
         final var aRequestBody = new UpdateGenreRequest(
                 expectedName,
-                mapTo(expectedCategories, CategoryID::getValue),
+                mapTo(expectedCategories, CategoryId::getValue),
                 expectedIsActive
         );
 

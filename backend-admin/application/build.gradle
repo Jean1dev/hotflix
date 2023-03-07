@@ -19,6 +19,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.mockito/mockito-junit-jupiter
     testImplementation 'org.mockito:mockito-junit-jupiter:5.1.1'
 
+    testImplementation 'com.github.javafaker:javafaker:1.0.2'
 
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }
