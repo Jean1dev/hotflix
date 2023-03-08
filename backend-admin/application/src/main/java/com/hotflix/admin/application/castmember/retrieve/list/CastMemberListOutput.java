@@ -1,7 +1,7 @@
 package com.hotflix.admin.application.castmember.retrieve.list;
 
-import com.fullcycle.admin.catalogo.domain.castmember.CastMember;
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberType;
+import com.hotflix.admin.domain.castmember.CastMember;
+import com.hotflix.admin.domain.castmember.CastMemberType;
 
 import java.time.Instant;
 

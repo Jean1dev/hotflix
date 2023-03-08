@@ -1,7 +1,7 @@
 package com.hotflix.admin.application.castmember.delete;
 
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberGateway;
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberID;
+import com.hotflix.admin.domain.castmember.CastMemberGateway;
+import com.hotflix.admin.domain.castmember.CastMemberID;
 
 import java.util.Objects;
 

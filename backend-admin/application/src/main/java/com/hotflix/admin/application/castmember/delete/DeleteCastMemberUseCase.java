@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.castmember.delete;
 
-import com.fullcycle.admin.catalogo.application.UnitUseCase;
+import com.hotflix.admin.application.UnitUseCase;
 
 public sealed abstract class DeleteCastMemberUseCase
     extends UnitUseCase<String>

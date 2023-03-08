@@ -1,9 +1,9 @@
 package com.hotflix.admin.application.castmember.retrieve.get;
 
-import com.fullcycle.admin.catalogo.domain.castmember.CastMember;
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberGateway;
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberID;
-import com.fullcycle.admin.catalogo.domain.exceptions.NotFoundException;
+import com.hotflix.admin.domain.castmember.CastMember;
+import com.hotflix.admin.domain.castmember.CastMemberGateway;
+import com.hotflix.admin.domain.castmember.CastMemberID;
+import com.hotflix.admin.domain.exceptions.NotFoundException;
 
 import java.util.Objects;
 

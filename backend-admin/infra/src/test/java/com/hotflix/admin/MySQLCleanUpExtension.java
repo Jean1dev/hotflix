@@ -1,5 +1,6 @@
 package com.hotflix.admin;
 
+import com.hotflix.admin.infra.castmember.persistence.CastMemberRepository;
 import com.hotflix.admin.infra.category.persistence.CategoryRepository;
 import com.hotflix.admin.infra.genre.persistence.GenreRepository;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
@@ -18,7 +19,7 @@ public class MySQLCleanUpExtension implements BeforeEachCallback {
 
         cleanUp(List.of(
 //                appContext.getBean(VideoRepository.class),
-//                appContext.getBean(CastMemberRepository.class),
+                appContext.getBean(CastMemberRepository.class),
                 appContext.getBean(GenreRepository.class),
                 appContext.getBean(CategoryRepository.class)
         ));
