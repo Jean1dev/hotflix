@@ -1,6 +1,6 @@
 package com.hotflix.admin.domain.video;
 
-import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
+import com.hotflix.admin.domain.pagination.Pagination;
 
 import java.util.Optional;
 

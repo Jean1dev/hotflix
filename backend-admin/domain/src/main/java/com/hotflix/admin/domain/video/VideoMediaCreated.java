@@ -1,7 +1,6 @@
 package com.hotflix.admin.domain.video;
 
-import com.fullcycle.admin.catalogo.domain.events.DomainEvent;
-import com.fullcycle.admin.catalogo.domain.utils.InstantUtils;
+import com.hotflix.admin.domain.utils.InstantUtils;
 
 import java.time.Instant;
 

@@ -1,6 +1,6 @@
 package com.hotflix.admin.domain.video;
 
-import com.fullcycle.admin.catalogo.domain.ValueObject;
+import com.hotflix.admin.domain.ValueObject;
 
 import java.util.Objects;
 

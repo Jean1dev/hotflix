@@ -1,8 +1,8 @@
 package com.hotflix.admin.domain.video;
 
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberID;
-import com.fullcycle.admin.catalogo.domain.category.CategoryID;
-import com.fullcycle.admin.catalogo.domain.genre.GenreID;
+import com.hotflix.admin.domain.castmember.CastMemberID;
+import com.hotflix.admin.domain.category.CategoryId;
+import com.hotflix.admin.domain.genre.GenreID;
 
 import java.util.Set;
 
@@ -13,7 +13,7 @@ public record VideoSearchQuery(
         String sort,
         String direction,
         Set<CastMemberID> castMembers,
-        Set<CategoryID> categories,
+        Set<CategoryId> categories,
         Set<GenreID> genres
 ) {
 }

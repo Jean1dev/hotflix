@@ -1,6 +1,6 @@
 package com.hotflix.admin.domain.video;
 
-import com.fullcycle.admin.catalogo.domain.UnitTest;
+import com.hotflix.admin.domain.UnitTest;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

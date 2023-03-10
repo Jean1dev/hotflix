@@ -1,11 +1,11 @@
 package com.hotflix.admin.domain.video;
 
-import com.fullcycle.admin.catalogo.domain.UnitTest;
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberID;
-import com.fullcycle.admin.catalogo.domain.category.CategoryID;
-import com.fullcycle.admin.catalogo.domain.genre.GenreID;
-import com.fullcycle.admin.catalogo.domain.utils.InstantUtils;
-import com.fullcycle.admin.catalogo.domain.validation.handler.ThrowsValidationHandler;
+import com.hotflix.admin.domain.UnitTest;
+import com.hotflix.admin.domain.castmember.CastMemberID;
+import com.hotflix.admin.domain.category.CategoryId;
+import com.hotflix.admin.domain.genre.GenreID;
+import com.hotflix.admin.domain.utils.InstantUtils;
+import com.hotflix.admin.domain.validation.handler.ThrowsValidationHandler;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -29,7 +29,7 @@ public class VideoTest extends UnitTest {
         final var expectedOpened = false;
         final var expectedPublished = false;
         final var expectedRating = Rating.L;
-        final var expectedCategories = Set.of(CategoryID.unique());
+        final var expectedCategories = Set.of(CategoryId.unique());
         final var expectedGenres = Set.of(GenreID.unique());
         final var expectedMembers = Set.of(CastMemberID.unique());
 
@@ -90,7 +90,7 @@ public class VideoTest extends UnitTest {
         final var expectedRating = Rating.L;
         final var expectedEvent = new VideoMediaCreated("ID", "file");
         final var expectedEventCount = 1;
-        final var expectedCategories = Set.of(CategoryID.unique());
+        final var expectedCategories = Set.of(CategoryId.unique());
         final var expectedGenres = Set.of(GenreID.unique());
         final var expectedMembers = Set.of(CastMemberID.unique());
 
@@ -165,7 +165,7 @@ public class VideoTest extends UnitTest {
         final var expectedOpened = false;
         final var expectedPublished = false;
         final var expectedRating = Rating.L;
-        final var expectedCategories = Set.of(CategoryID.unique());
+        final var expectedCategories = Set.of(CategoryId.unique());
         final var expectedGenres = Set.of(GenreID.unique());
         final var expectedMembers = Set.of(CastMemberID.unique());
         final var expectedDomainEventSize = 1;
@@ -235,7 +235,7 @@ public class VideoTest extends UnitTest {
         final var expectedOpened = false;
         final var expectedPublished = false;
         final var expectedRating = Rating.L;
-        final var expectedCategories = Set.of(CategoryID.unique());
+        final var expectedCategories = Set.of(CategoryId.unique());
         final var expectedGenres = Set.of(GenreID.unique());
         final var expectedMembers = Set.of(CastMemberID.unique());
         final var expectedDomainEventSize = 1;
@@ -305,7 +305,7 @@ public class VideoTest extends UnitTest {
         final var expectedOpened = false;
         final var expectedPublished = false;
         final var expectedRating = Rating.L;
-        final var expectedCategories = Set.of(CategoryID.unique());
+        final var expectedCategories = Set.of(CategoryId.unique());
         final var expectedGenres = Set.of(GenreID.unique());
         final var expectedMembers = Set.of(CastMemberID.unique());
 
@@ -367,7 +367,7 @@ public class VideoTest extends UnitTest {
         final var expectedOpened = false;
         final var expectedPublished = false;
         final var expectedRating = Rating.L;
-        final var expectedCategories = Set.of(CategoryID.unique());
+        final var expectedCategories = Set.of(CategoryId.unique());
         final var expectedGenres = Set.of(GenreID.unique());
         final var expectedMembers = Set.of(CastMemberID.unique());
 
@@ -429,7 +429,7 @@ public class VideoTest extends UnitTest {
         final var expectedOpened = false;
         final var expectedPublished = false;
         final var expectedRating = Rating.L;
-        final var expectedCategories = Set.of(CategoryID.unique());
+        final var expectedCategories = Set.of(CategoryId.unique());
         final var expectedGenres = Set.of(GenreID.unique());
         final var expectedMembers = Set.of(CastMemberID.unique());
 
@@ -491,7 +491,7 @@ public class VideoTest extends UnitTest {
         final var expectedOpened = false;
         final var expectedPublished = false;
         final var expectedRating = Rating.L;
-        final var expectedCategories = Set.of(CategoryID.unique());
+        final var expectedCategories = Set.of(CategoryId.unique());
         final var expectedGenres = Set.of(GenreID.unique());
         final var expectedMembers = Set.of(CastMemberID.unique());
 
