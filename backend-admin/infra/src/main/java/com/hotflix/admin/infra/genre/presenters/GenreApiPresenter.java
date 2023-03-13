@@ -1,9 +1,9 @@
 package com.hotflix.admin.infra.genre.presenters;
 
-import com.fullcycle.admin.catalogo.application.genre.retrieve.get.GenreOutput;
-import com.fullcycle.admin.catalogo.application.genre.retrieve.list.GenreListOutput;
-import com.fullcycle.admin.catalogo.infrastructure.genre.models.GenreListResponse;
-import com.fullcycle.admin.catalogo.infrastructure.genre.models.GenreResponse;
+import com.hotflix.admin.application.genre.retrieve.get.GenreOutput;
+import com.hotflix.admin.application.genre.retrieve.list.GenreListOutput;
+import com.hotflix.admin.infra.genre.models.GenreListResponse;
+import com.hotflix.admin.infra.genre.models.GenreResponse;
 
 public interface GenreApiPresenter {
 
