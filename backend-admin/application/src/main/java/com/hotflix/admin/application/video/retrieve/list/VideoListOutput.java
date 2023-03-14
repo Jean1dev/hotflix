@@ -1,7 +1,7 @@
 package com.hotflix.admin.application.video.retrieve.list;
 
-import com.fullcycle.admin.catalogo.domain.video.Video;
-import com.fullcycle.admin.catalogo.domain.video.VideoPreview;
+import com.hotflix.admin.domain.video.Video;
+import com.hotflix.admin.domain.video.VideoPreview;
 
 import java.time.Instant;
 

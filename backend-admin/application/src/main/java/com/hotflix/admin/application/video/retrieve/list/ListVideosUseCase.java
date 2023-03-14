@@ -1,8 +1,8 @@
 package com.hotflix.admin.application.video.retrieve.list;
 
-import com.fullcycle.admin.catalogo.application.UseCase;
-import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
-import com.fullcycle.admin.catalogo.domain.video.VideoSearchQuery;
+import com.hotflix.admin.application.UseCase;
+import com.hotflix.admin.domain.pagination.Pagination;
+import com.hotflix.admin.domain.video.VideoSearchQuery;
 
 public abstract class ListVideosUseCase
         extends UseCase<VideoSearchQuery, Pagination<VideoListOutput>> {

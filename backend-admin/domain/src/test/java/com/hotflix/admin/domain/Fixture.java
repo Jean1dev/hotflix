@@ -1,4 +1,4 @@
-package com.hotflix.admin.application;
+package com.hotflix.admin.domain;
 
 import com.github.javafaker.Faker;
 import com.hotflix.admin.domain.castmember.CastMember;
@@ -7,11 +7,10 @@ import com.hotflix.admin.domain.category.Category;
 import com.hotflix.admin.domain.genre.Genre;
 import com.hotflix.admin.domain.utils.IdUtils;
 import com.hotflix.admin.domain.video.*;
+import io.vavr.API;
 
 import java.time.Year;
 import java.util.Set;
-
-import static io.vavr.API.*;
 
 public final class Fixture {
 
@@ -143,9 +142,9 @@ public final class Fixture {
         }
 
         public static Resource resource(final VideoMediaType type) {
-            final String contentType = Match(type).of(
-                    Case($(List(VideoMediaType.VIDEO, VideoMediaType.TRAILER)::contains), "video/mp4"),
-                    Case($(), "image/jpg")
+            final String contentType = API.Match(type).of(
+                    API.Case(API.$(API.List(VideoMediaType.VIDEO, VideoMediaType.TRAILER)::contains), "video/mp4"),
+                    API.Case(API.$(), "image/jpg")
             );
 
             final String checksum = IdUtils.uuid();

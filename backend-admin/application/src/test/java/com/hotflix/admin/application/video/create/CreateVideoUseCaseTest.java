@@ -1,7 +1,7 @@
 package com.hotflix.admin.application.video.create;
 
-import com.hotflix.admin.application.Fixture;
 import com.hotflix.admin.application.UseCaseTest;
+import com.hotflix.admin.domain.Fixture;
 import com.hotflix.admin.domain.castmember.CastMemberGateway;
 import com.hotflix.admin.domain.castmember.CastMemberID;
 import com.hotflix.admin.domain.category.CategoryGateway;

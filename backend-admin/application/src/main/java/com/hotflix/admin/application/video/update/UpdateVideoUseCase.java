@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.video.update;
 
-import com.fullcycle.admin.catalogo.application.UseCase;
+import com.hotflix.admin.application.UseCase;
 
 public abstract class UpdateVideoUseCase
         extends UseCase<UpdateVideoCommand, UpdateVideoOutput> {

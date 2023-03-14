@@ -1,8 +1,8 @@
 package com.hotflix.admin.application.video.retrieve.list;
 
-import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
-import com.fullcycle.admin.catalogo.domain.video.VideoGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoSearchQuery;
+import com.hotflix.admin.domain.pagination.Pagination;
+import com.hotflix.admin.domain.video.VideoGateway;
+import com.hotflix.admin.domain.video.VideoSearchQuery;
 
 import java.util.Objects;
 

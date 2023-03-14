@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.video.update;
 
-import com.fullcycle.admin.catalogo.domain.video.Video;
+import com.hotflix.admin.domain.video.Video;
 
 public record UpdateVideoOutput(String id) {
 

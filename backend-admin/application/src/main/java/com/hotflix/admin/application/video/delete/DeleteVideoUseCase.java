@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.video.delete;
 
-import com.fullcycle.admin.catalogo.application.UnitUseCase;
+import com.hotflix.admin.application.UnitUseCase;
 
 public abstract class DeleteVideoUseCase extends UnitUseCase<String> {
 }

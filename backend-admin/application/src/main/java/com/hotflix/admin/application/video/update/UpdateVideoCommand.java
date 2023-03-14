@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.video.update;
 
-import com.fullcycle.admin.catalogo.domain.video.Resource;
+import com.hotflix.admin.domain.video.Resource;
 
 import java.util.Optional;
 import java.util.Set;

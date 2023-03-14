@@ -1,12 +1,12 @@
 package com.hotflix.admin.application.video.retrieve.list;
 
-import com.fullcycle.admin.catalogo.application.UseCaseTest;
-import com.fullcycle.admin.catalogo.application.genre.retrieve.list.GenreListOutput;
-import com.fullcycle.admin.catalogo.domain.Fixture;
-import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
-import com.fullcycle.admin.catalogo.domain.video.VideoGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoPreview;
-import com.fullcycle.admin.catalogo.domain.video.VideoSearchQuery;
+import com.hotflix.admin.application.Fixture;
+import com.hotflix.admin.application.UseCaseTest;
+import com.hotflix.admin.application.genre.retrieve.list.GenreListOutput;
+import com.hotflix.admin.domain.pagination.Pagination;
+import com.hotflix.admin.domain.video.VideoGateway;
+import com.hotflix.admin.domain.video.VideoPreview;
+import com.hotflix.admin.domain.video.VideoSearchQuery;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -81,7 +81,7 @@ public class ListVideoUseCaseTest extends UseCaseTest {
         Assertions.assertEquals(expectedPage, actualOutput.currentPage());
         Assertions.assertEquals(expectedPerPage, actualOutput.perPage());
         Assertions.assertEquals(expectedTotal, actualOutput.total());
-        Assertions.assertEquals(expectedItems, actualOutput.items());
+        Assertions.assertEquals(expectedItems, actualOutput.itens());
 
         Mockito.verify(videoGateway, times(1)).findAll(eq(aQuery));
     }
@@ -128,7 +128,7 @@ public class ListVideoUseCaseTest extends UseCaseTest {
         Assertions.assertEquals(expectedPage, actualOutput.currentPage());
         Assertions.assertEquals(expectedPerPage, actualOutput.perPage());
         Assertions.assertEquals(expectedTotal, actualOutput.total());
-        Assertions.assertEquals(expectedItems, actualOutput.items());
+        Assertions.assertEquals(expectedItems, actualOutput.itens());
 
         Mockito.verify(videoGateway, times(1)).findAll(eq(aQuery));
     }

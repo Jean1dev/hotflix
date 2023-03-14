@@ -1,9 +1,9 @@
 package com.hotflix.admin.application.video.retrieve.get;
 
-import com.fullcycle.admin.catalogo.domain.exceptions.NotFoundException;
-import com.fullcycle.admin.catalogo.domain.video.Video;
-import com.fullcycle.admin.catalogo.domain.video.VideoGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoID;
+import com.hotflix.admin.domain.exceptions.NotFoundException;
+import com.hotflix.admin.domain.video.Video;
+import com.hotflix.admin.domain.video.VideoGateway;
+import com.hotflix.admin.domain.video.VideoID;
 
 import java.util.Objects;
 

@@ -2,7 +2,6 @@ package com.hotflix.admin.infra.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hotflix.admin.ControllerTest;
-import com.hotflix.admin.Fixture;
 import com.hotflix.admin.application.castmember.create.CreateCastMemberOutput;
 import com.hotflix.admin.application.castmember.create.DefaultCreateCastMemberUseCase;
 import com.hotflix.admin.application.castmember.delete.DefaultDeleteCastMemberUseCase;

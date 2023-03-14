@@ -1,20 +1,20 @@
 package com.hotflix.admin.application.video.update;
 
-import com.fullcycle.admin.catalogo.domain.Identifier;
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberGateway;
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberID;
-import com.fullcycle.admin.catalogo.domain.category.CategoryGateway;
-import com.fullcycle.admin.catalogo.domain.category.CategoryID;
-import com.fullcycle.admin.catalogo.domain.exceptions.DomainException;
-import com.fullcycle.admin.catalogo.domain.exceptions.InternalErrorException;
-import com.fullcycle.admin.catalogo.domain.exceptions.NotFoundException;
-import com.fullcycle.admin.catalogo.domain.exceptions.NotificationException;
-import com.fullcycle.admin.catalogo.domain.genre.GenreGateway;
-import com.fullcycle.admin.catalogo.domain.genre.GenreID;
-import com.fullcycle.admin.catalogo.domain.validation.Error;
-import com.fullcycle.admin.catalogo.domain.validation.ValidationHandler;
-import com.fullcycle.admin.catalogo.domain.validation.handler.Notification;
-import com.fullcycle.admin.catalogo.domain.video.*;
+import com.hotflix.admin.domain.Identifier;
+import com.hotflix.admin.domain.castmember.CastMemberGateway;
+import com.hotflix.admin.domain.castmember.CastMemberID;
+import com.hotflix.admin.domain.category.CategoryGateway;
+import com.hotflix.admin.domain.category.CategoryId;
+import com.hotflix.admin.domain.exceptions.DomainException;
+import com.hotflix.admin.domain.exceptions.InternalErrorException;
+import com.hotflix.admin.domain.exceptions.NotFoundException;
+import com.hotflix.admin.domain.exceptions.NotificationException;
+import com.hotflix.admin.domain.genre.GenreGateway;
+import com.hotflix.admin.domain.genre.GenreID;
+import com.hotflix.admin.domain.validation.DomainError;
+import com.hotflix.admin.domain.validation.ValidationHandler;
+import com.hotflix.admin.domain.validation.handler.NotificationHandler;
+import com.hotflix.admin.domain.video.*;
 
 import java.time.Year;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
-import static com.fullcycle.admin.catalogo.domain.video.VideoMediaType.*;
+import static com.hotflix.admin.domain.video.VideoMediaType.*;
 
 public class DefaultUpdateVideoUseCase extends UpdateVideoUseCase {
 
@@ -54,14 +54,14 @@ public class DefaultUpdateVideoUseCase extends UpdateVideoUseCase {
         final var anId = VideoID.from(aCommand.id());
         final var aRating = Rating.of(aCommand.rating()).orElse(null);
         final var aLaunchYear = aCommand.launchedAt() != null ? Year.of(aCommand.launchedAt()) : null;
-        final var categories = toIdentifier(aCommand.categories(), CategoryID::from);
+        final var categories = toIdentifier(aCommand.categories(), CategoryId::from);
         final var genres = toIdentifier(aCommand.genres(), GenreID::from);
         final var members = toIdentifier(aCommand.members(), CastMemberID::from);
 
         final var aVideo = this.videoGateway.findById(anId)
                 .orElseThrow(notFoundException(anId));
 
-        final var notification = Notification.create();
+        final var notification = NotificationHandler.create();
         notification.append(validateCategories(categories));
         notification.append(validateGenres(genres));
         notification.append(validateMembers(members));
@@ -132,7 +132,7 @@ public class DefaultUpdateVideoUseCase extends UpdateVideoUseCase {
         return () -> NotFoundException.with(Video.class, anId);
     }
 
-    private ValidationHandler validateCategories(final Set<CategoryID> ids) {
+    private ValidationHandler validateCategories(final Set<CategoryId> ids) {
         return validateAggregate("categories", ids, categoryGateway::existsByIds);
     }
 
@@ -149,7 +149,7 @@ public class DefaultUpdateVideoUseCase extends UpdateVideoUseCase {
             final Set<T> ids,
             final Function<Iterable<T>, List<T>> existsByIds
     ) {
-        final var notification = Notification.create();
+        final var notification = NotificationHandler.create();
         if (ids == null || ids.isEmpty()) {
             return notification;
         }
@@ -164,7 +164,7 @@ public class DefaultUpdateVideoUseCase extends UpdateVideoUseCase {
                     .map(Identifier::getValue)
                     .collect(Collectors.joining(", "));
 
-            notification.append(new Error("Some %s could not be found: %s".formatted(aggregate, missingIdsMessage)));
+            notification.append(new DomainError("Some %s could not be found: %s".formatted(aggregate, missingIdsMessage)));
         }
 
         return notification;

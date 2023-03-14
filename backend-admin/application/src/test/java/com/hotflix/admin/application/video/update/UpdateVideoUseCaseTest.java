@@ -1,18 +1,17 @@
 package com.hotflix.admin.application.video.update;
 
-import com.fullcycle.admin.catalogo.application.UseCaseTest;
-import com.fullcycle.admin.catalogo.domain.Fixture;
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberGateway;
-import com.fullcycle.admin.catalogo.domain.castmember.CastMemberID;
-import com.fullcycle.admin.catalogo.domain.category.CategoryGateway;
-import com.fullcycle.admin.catalogo.domain.category.CategoryID;
-import com.fullcycle.admin.catalogo.domain.exceptions.DomainException;
-import com.fullcycle.admin.catalogo.domain.exceptions.InternalErrorException;
-import com.fullcycle.admin.catalogo.domain.exceptions.NotificationException;
-import com.fullcycle.admin.catalogo.domain.genre.GenreGateway;
-import com.fullcycle.admin.catalogo.domain.genre.GenreID;
-import com.fullcycle.admin.catalogo.domain.utils.IdUtils;
-import com.fullcycle.admin.catalogo.domain.video.*;
+import com.hotflix.admin.application.Fixture;
+import com.hotflix.admin.application.UseCaseTest;
+import com.hotflix.admin.domain.castmember.CastMemberGateway;
+import com.hotflix.admin.domain.castmember.CastMemberID;
+import com.hotflix.admin.domain.category.CategoryGateway;
+import com.hotflix.admin.domain.category.CategoryId;
+import com.hotflix.admin.domain.exceptions.DomainException;
+import com.hotflix.admin.domain.exceptions.InternalErrorException;
+import com.hotflix.admin.domain.exceptions.NotificationException;
+import com.hotflix.admin.domain.genre.GenreGateway;
+import com.hotflix.admin.domain.genre.GenreID;
+import com.hotflix.admin.domain.video.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -153,7 +152,7 @@ public class UpdateVideoUseCaseTest extends UseCaseTest {
         final var expectedOpened = Fixture.bool();
         final var expectedPublished = Fixture.bool();
         final var expectedRating = Fixture.Videos.rating();
-        final var expectedCategories = Set.<CategoryID>of();
+        final var expectedCategories = Set.<CategoryId>of();
         final var expectedGenres = Set.of(Fixture.Genres.tech().getId());
         final var expectedMembers = Set.of(
                 Fixture.CastMembers.wesley().getId(),
@@ -505,7 +504,7 @@ public class UpdateVideoUseCaseTest extends UseCaseTest {
         final var expectedOpened = Fixture.bool();
         final var expectedPublished = Fixture.bool();
         final var expectedRating = Fixture.Videos.rating();
-        final var expectedCategories = Set.<CategoryID>of();
+        final var expectedCategories = Set.<CategoryId>of();
         final var expectedGenres = Set.<GenreID>of();
         final var expectedMembers = Set.<CastMemberID>of();
         final Resource expectedVideo = null;
@@ -570,7 +569,7 @@ public class UpdateVideoUseCaseTest extends UseCaseTest {
         final var expectedOpened = Fixture.bool();
         final var expectedPublished = Fixture.bool();
         final var expectedRating = Fixture.Videos.rating();
-        final var expectedCategories = Set.<CategoryID>of();
+        final var expectedCategories = Set.<CategoryId>of();
         final var expectedGenres = Set.<GenreID>of();
         final var expectedMembers = Set.<CastMemberID>of();
         final Resource expectedVideo = null;
@@ -635,7 +634,7 @@ public class UpdateVideoUseCaseTest extends UseCaseTest {
         final var expectedOpened = Fixture.bool();
         final var expectedPublished = Fixture.bool();
         final String expectedRating = null;
-        final var expectedCategories = Set.<CategoryID>of();
+        final var expectedCategories = Set.<CategoryId>of();
         final var expectedGenres = Set.<GenreID>of();
         final var expectedMembers = Set.<CastMemberID>of();
         final Resource expectedVideo = null;
@@ -700,7 +699,7 @@ public class UpdateVideoUseCaseTest extends UseCaseTest {
         final var expectedOpened = Fixture.bool();
         final var expectedPublished = Fixture.bool();
         final String expectedRating = "ADASDA";
-        final var expectedCategories = Set.<CategoryID>of();
+        final var expectedCategories = Set.<CategoryId>of();
         final var expectedGenres = Set.<GenreID>of();
         final var expectedMembers = Set.<CastMemberID>of();
         final Resource expectedVideo = null;
@@ -765,7 +764,7 @@ public class UpdateVideoUseCaseTest extends UseCaseTest {
         final var expectedOpened = Fixture.bool();
         final var expectedPublished = Fixture.bool();
         final var expectedRating = Fixture.Videos.rating();
-        final var expectedCategories = Set.<CategoryID>of();
+        final var expectedCategories = Set.<CategoryId>of();
         final var expectedGenres = Set.<GenreID>of();
         final var expectedMembers = Set.<CastMemberID>of();
         final Resource expectedVideo = null;

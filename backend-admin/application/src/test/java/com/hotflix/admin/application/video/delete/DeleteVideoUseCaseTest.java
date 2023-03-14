@@ -1,10 +1,10 @@
 package com.hotflix.admin.application.video.delete;
 
-import com.fullcycle.admin.catalogo.application.UseCaseTest;
-import com.fullcycle.admin.catalogo.domain.exceptions.InternalErrorException;
-import com.fullcycle.admin.catalogo.domain.video.MediaResourceGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoID;
+import com.hotflix.admin.application.UseCaseTest;
+import com.hotflix.admin.domain.exceptions.InternalErrorException;
+import com.hotflix.admin.domain.video.MediaResourceGateway;
+import com.hotflix.admin.domain.video.VideoGateway;
+import com.hotflix.admin.domain.video.VideoID;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

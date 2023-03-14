@@ -1,11 +1,11 @@
 package com.hotflix.admin.application.video.retrieve.get;
 
-import com.fullcycle.admin.catalogo.domain.Identifier;
-import com.fullcycle.admin.catalogo.domain.utils.CollectionUtils;
-import com.fullcycle.admin.catalogo.domain.video.AudioVideoMedia;
-import com.fullcycle.admin.catalogo.domain.video.ImageMedia;
-import com.fullcycle.admin.catalogo.domain.video.Rating;
-import com.fullcycle.admin.catalogo.domain.video.Video;
+import com.hotflix.admin.domain.Identifier;
+import com.hotflix.admin.domain.utils.CollectionUtils;
+import com.hotflix.admin.domain.video.AudioVideoMedia;
+import com.hotflix.admin.domain.video.ImageMedia;
+import com.hotflix.admin.domain.video.Rating;
+import com.hotflix.admin.domain.video.Video;
 
 import java.time.Instant;
 import java.util.Set;

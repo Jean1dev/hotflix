@@ -1,8 +1,8 @@
 package com.hotflix.admin.application.video.delete;
 
-import com.fullcycle.admin.catalogo.domain.video.MediaResourceGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoID;
+import com.hotflix.admin.domain.video.MediaResourceGateway;
+import com.hotflix.admin.domain.video.VideoGateway;
+import com.hotflix.admin.domain.video.VideoID;
 
 import java.util.Objects;
 
