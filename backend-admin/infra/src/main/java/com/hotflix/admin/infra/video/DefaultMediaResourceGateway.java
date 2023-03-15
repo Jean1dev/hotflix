@@ -1,8 +1,8 @@
 package com.hotflix.admin.infra.video;
 
-import com.fullcycle.admin.catalogo.domain.video.*;
-import com.fullcycle.admin.catalogo.infrastructure.configuration.properties.storage.StorageProperties;
-import com.fullcycle.admin.catalogo.infrastructure.services.StorageService;
+import com.hotflix.admin.domain.video.*;
+import com.hotflix.admin.infra.config.properties.storage.StorageProperties;
+import com.hotflix.admin.infra.services.StorageService;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

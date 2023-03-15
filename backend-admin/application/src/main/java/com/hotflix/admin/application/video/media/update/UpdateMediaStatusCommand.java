@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.video.media.update;
 
-import com.fullcycle.admin.catalogo.domain.video.MediaStatus;
+import com.hotflix.admin.domain.video.MediaStatus;
 
 public record UpdateMediaStatusCommand(
         MediaStatus status,

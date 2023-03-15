@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.video.media.get;
 
-import com.fullcycle.admin.catalogo.domain.video.Resource;
+import com.hotflix.admin.domain.video.Resource;
 
 public record MediaOutput(
         byte[] content,

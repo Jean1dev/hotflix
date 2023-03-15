@@ -1,11 +1,11 @@
 package com.hotflix.admin.application.video.media.update;
 
-import com.fullcycle.admin.catalogo.application.UseCaseTest;
-import com.fullcycle.admin.catalogo.domain.Fixture;
-import com.fullcycle.admin.catalogo.domain.video.MediaStatus;
-import com.fullcycle.admin.catalogo.domain.video.Video;
-import com.fullcycle.admin.catalogo.domain.video.VideoGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoMediaType;
+import com.hotflix.admin.application.UseCaseTest;
+import com.hotflix.admin.domain.Fixture;
+import com.hotflix.admin.domain.video.MediaStatus;
+import com.hotflix.admin.domain.video.Video;
+import com.hotflix.admin.domain.video.VideoGateway;
+import com.hotflix.admin.domain.video.VideoMediaType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;

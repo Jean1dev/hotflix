@@ -1,12 +1,12 @@
 package com.hotflix.admin.application.video.media.update;
 
-import com.fullcycle.admin.catalogo.domain.exceptions.NotFoundException;
-import com.fullcycle.admin.catalogo.domain.video.*;
+import com.hotflix.admin.domain.exceptions.NotFoundException;
+import com.hotflix.admin.domain.video.*;
 
 import java.util.Objects;
 
-import static com.fullcycle.admin.catalogo.domain.video.VideoMediaType.TRAILER;
-import static com.fullcycle.admin.catalogo.domain.video.VideoMediaType.VIDEO;
+import static com.hotflix.admin.domain.video.VideoMediaType.TRAILER;
+import static com.hotflix.admin.domain.video.VideoMediaType.VIDEO;
 
 public class DefaultUpdateMediaStatusUseCase extends UpdateMediaStatusUseCase {
 

@@ -1,15 +1,14 @@
 package com.hotflix.admin.application.video.media.get;
 
-import com.fullcycle.admin.catalogo.application.UseCaseTest;
-import com.fullcycle.admin.catalogo.domain.Fixture;
-import com.fullcycle.admin.catalogo.domain.exceptions.NotFoundException;
-import com.fullcycle.admin.catalogo.domain.video.MediaResourceGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoID;
+import com.hotflix.admin.application.UseCaseTest;
+import com.hotflix.admin.domain.Fixture;
+import com.hotflix.admin.domain.exceptions.NotFoundException;
+import com.hotflix.admin.domain.video.MediaResourceGateway;
+import com.hotflix.admin.domain.video.VideoID;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 
 import java.util.List;
 import java.util.Optional;

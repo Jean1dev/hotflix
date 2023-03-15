@@ -1,12 +1,12 @@
 package com.hotflix.admin.application.video.media.upload;
 
-import com.fullcycle.admin.catalogo.application.UseCaseTest;
-import com.fullcycle.admin.catalogo.domain.Fixture;
-import com.fullcycle.admin.catalogo.domain.exceptions.NotFoundException;
-import com.fullcycle.admin.catalogo.domain.video.MediaResourceGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoMediaType;
-import com.fullcycle.admin.catalogo.domain.video.VideoResource;
+import com.hotflix.admin.application.UseCaseTest;
+import com.hotflix.admin.domain.Fixture;
+import com.hotflix.admin.domain.exceptions.NotFoundException;
+import com.hotflix.admin.domain.video.MediaResourceGateway;
+import com.hotflix.admin.domain.video.VideoGateway;
+import com.hotflix.admin.domain.video.VideoMediaType;
+import com.hotflix.admin.domain.video.VideoResource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

@@ -1,9 +1,9 @@
 package com.hotflix.admin.infra.video;
 
-import com.fullcycle.admin.catalogo.IntegrationTest;
-import com.fullcycle.admin.catalogo.domain.video.*;
-import com.fullcycle.admin.catalogo.infrastructure.services.StorageService;
-import com.fullcycle.admin.catalogo.infrastructure.services.local.InMemoryStorageService;
+import com.hotflix.admin.IntegrationTest;
+import com.hotflix.admin.domain.video.*;
+import com.hotflix.admin.infra.services.StorageService;
+import com.hotflix.admin.infra.services.local.InMemoryStorageService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,8 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 
-import static com.fullcycle.admin.catalogo.domain.Fixture.Videos.mediaType;
-import static com.fullcycle.admin.catalogo.domain.Fixture.Videos.resource;
+import static com.hotflix.admin.domain.Fixture.Videos.mediaType;
+import static com.hotflix.admin.domain.Fixture.Videos.resource;
 
 @IntegrationTest
 class DefaultMediaResourceGatewayTest {

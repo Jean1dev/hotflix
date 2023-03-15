@@ -1,10 +1,10 @@
 package com.hotflix.admin.application.video.media.get;
 
-import com.fullcycle.admin.catalogo.domain.exceptions.NotFoundException;
-import com.fullcycle.admin.catalogo.domain.validation.Error;
-import com.fullcycle.admin.catalogo.domain.video.MediaResourceGateway;
-import com.fullcycle.admin.catalogo.domain.video.VideoID;
-import com.fullcycle.admin.catalogo.domain.video.VideoMediaType;
+import com.hotflix.admin.domain.exceptions.NotFoundException;
+import com.hotflix.admin.domain.validation.DomainError;
+import com.hotflix.admin.domain.video.MediaResourceGateway;
+import com.hotflix.admin.domain.video.VideoID;
+import com.hotflix.admin.domain.video.VideoMediaType;
 
 import java.util.Objects;
 
@@ -30,10 +30,10 @@ public class DefaultGetMediaUseCase extends GetMediaUseCase {
     }
 
     private NotFoundException notFound(final String anId, final String aType) {
-        return NotFoundException.with(new Error("Resource %s not found for video %s".formatted(aType, anId)));
+        return NotFoundException.with(new DomainError("Resource %s not found for video %s".formatted(aType, anId)));
     }
 
     private NotFoundException typeNotFound(final String aType) {
-        return NotFoundException.with(new Error("Media type %s doesn't exists".formatted(aType)));
+        return NotFoundException.with(new DomainError("Media type %s doesn't exists".formatted(aType)));
     }
 }

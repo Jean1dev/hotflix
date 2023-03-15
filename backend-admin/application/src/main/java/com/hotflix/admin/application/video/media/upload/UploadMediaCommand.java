@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.video.media.upload;
 
-import com.fullcycle.admin.catalogo.domain.video.VideoResource;
+import com.hotflix.admin.domain.video.VideoResource;
 
 public record UploadMediaCommand(
         String videoId,
