@@ -3,6 +3,7 @@ package com.hotflix.admin.domain.video;
 import com.hotflix.admin.domain.AggregateRoot;
 import com.hotflix.admin.domain.castmember.CastMemberID;
 import com.hotflix.admin.domain.category.CategoryId;
+import com.hotflix.admin.domain.events.DomainEvent;
 import com.hotflix.admin.domain.genre.GenreID;
 import com.hotflix.admin.domain.utils.InstantUtils;
 import com.hotflix.admin.domain.validation.ValidationHandler;

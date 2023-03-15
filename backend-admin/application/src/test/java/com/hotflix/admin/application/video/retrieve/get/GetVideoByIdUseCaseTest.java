@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.video.retrieve.get;
 
-import com.hotflix.admin.application.Fixture;
+import com.hotflix.admin.domain.Fixture;
 import com.hotflix.admin.application.UseCaseTest;
 import com.hotflix.admin.domain.exceptions.NotFoundException;
 import com.hotflix.admin.domain.video.Video;
@@ -17,8 +17,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import static com.hotflix.admin.application.Fixture.Videos.audioVideo;
-import static com.hotflix.admin.application.Fixture.Videos.image;
+import static com.hotflix.admin.domain.Fixture.Videos.audioVideo;
+import static com.hotflix.admin.domain.Fixture.Videos.image;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 

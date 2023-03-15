@@ -1,5 +1,6 @@
 package com.hotflix.admin.domain.video;
 
+import com.hotflix.admin.domain.events.DomainEvent;
 import com.hotflix.admin.domain.utils.InstantUtils;
 
 import java.time.Instant;

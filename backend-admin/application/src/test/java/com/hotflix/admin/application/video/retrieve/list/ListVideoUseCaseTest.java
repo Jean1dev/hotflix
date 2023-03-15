@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.video.retrieve.list;
 
-import com.hotflix.admin.application.Fixture;
+import com.hotflix.admin.domain.Fixture;
 import com.hotflix.admin.application.UseCaseTest;
 import com.hotflix.admin.application.genre.retrieve.list.GenreListOutput;
 import com.hotflix.admin.domain.pagination.Pagination;

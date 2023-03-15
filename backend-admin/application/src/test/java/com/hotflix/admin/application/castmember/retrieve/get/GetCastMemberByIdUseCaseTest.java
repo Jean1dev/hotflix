@@ -1,6 +1,6 @@
 package com.hotflix.admin.application.castmember.retrieve.get;
 
-import com.hotflix.admin.application.Fixture;
+import com.hotflix.admin.domain.Fixture;
 import com.hotflix.admin.application.UseCaseTest;
 import com.hotflix.admin.domain.castmember.CastMember;
 import com.hotflix.admin.domain.castmember.CastMemberGateway;

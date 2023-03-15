@@ -1,10 +1,10 @@
 package com.hotflix.admin.infra.services.impl;
 
-import com.fullcycle.admin.catalogo.AmqpTest;
-import com.fullcycle.admin.catalogo.domain.video.VideoMediaCreated;
-import com.fullcycle.admin.catalogo.infrastructure.configuration.annotations.VideoCreatedQueue;
-import com.fullcycle.admin.catalogo.infrastructure.configuration.json.Json;
-import com.fullcycle.admin.catalogo.infrastructure.services.EventService;
+import com.hotflix.admin.AmqpTest;
+import com.hotflix.admin.domain.video.VideoMediaCreated;
+import com.hotflix.admin.infra.config.annotations.VideoCreatedQueue;
+import com.hotflix.admin.infra.config.json.Json;
+import com.hotflix.admin.infra.services.EventService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

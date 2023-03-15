@@ -3,6 +3,8 @@ package com.hotflix.admin.infra.video;
 import com.hotflix.admin.domain.Identifier;
 import com.hotflix.admin.domain.pagination.Pagination;
 import com.hotflix.admin.domain.video.*;
+import com.hotflix.admin.infra.config.annotations.VideoCreatedQueue;
+import com.hotflix.admin.infra.services.EventService;
 import com.hotflix.admin.infra.utils.SqlUtils;
 import com.hotflix.admin.infra.video.persistence.VideoJpaEntity;
 import com.hotflix.admin.infra.video.persistence.VideoRepository;

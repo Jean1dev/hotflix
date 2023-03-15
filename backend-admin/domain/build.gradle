@@ -11,7 +11,6 @@ repositories {
 
 dependencies {
 
-
     //https://github.com/DiUS/java-faker/issues/733
     testImplementation('com.github.javafaker:javafaker:1.0.2') {
         exclude group: 'org.yaml', module: 'snakeyaml'

@@ -1,7 +1,7 @@
 package com.hotflix.admin.infra.services.impl;
 
-import com.fullcycle.admin.catalogo.infrastructure.configuration.json.Json;
-import com.fullcycle.admin.catalogo.infrastructure.services.EventService;
+import com.hotflix.admin.infra.config.json.Json;
+import com.hotflix.admin.infra.services.EventService;
 import org.springframework.amqp.rabbit.core.RabbitOperations;
 
 import java.util.Objects;

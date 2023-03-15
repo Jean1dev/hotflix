@@ -1,7 +1,7 @@
 package com.hotflix.admin.infra.video.models;
 
-import com.fullcycle.admin.catalogo.JacksonTest;
-import com.fullcycle.admin.catalogo.domain.utils.IdUtils;
+import com.hotflix.admin.JacksonTest;
+import com.hotflix.admin.domain.utils.IdUtils;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

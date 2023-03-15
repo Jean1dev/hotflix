@@ -1,13 +1,13 @@
 package com.hotflix.admin.infra.video.presenters;
 
-import com.fullcycle.admin.catalogo.application.video.media.upload.UploadMediaOutput;
-import com.fullcycle.admin.catalogo.application.video.retrieve.get.VideoOutput;
-import com.fullcycle.admin.catalogo.application.video.retrieve.list.VideoListOutput;
-import com.fullcycle.admin.catalogo.application.video.update.UpdateVideoOutput;
-import com.fullcycle.admin.catalogo.domain.pagination.Pagination;
-import com.fullcycle.admin.catalogo.domain.video.AudioVideoMedia;
-import com.fullcycle.admin.catalogo.domain.video.ImageMedia;
-import com.fullcycle.admin.catalogo.infrastructure.video.models.*;
+import com.hotflix.admin.application.video.media.upload.UploadMediaOutput;
+import com.hotflix.admin.application.video.retrieve.get.VideoOutput;
+import com.hotflix.admin.application.video.retrieve.list.VideoListOutput;
+import com.hotflix.admin.application.video.update.UpdateVideoOutput;
+import com.hotflix.admin.domain.pagination.Pagination;
+import com.hotflix.admin.domain.video.AudioVideoMedia;
+import com.hotflix.admin.domain.video.ImageMedia;
+import com.hotflix.admin.infra.video.models.*;
 
 public interface VideoApiPresenter {
 
