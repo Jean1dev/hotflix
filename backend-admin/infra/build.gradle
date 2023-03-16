@@ -23,7 +23,7 @@ dependencies {
     implementation(project(":application"))
 
     //TEMP
-    //implementation 'io.vavr:vavr:0.10.4'
+    implementation 'io.vavr:vavr:0.10.4'
 
     implementation('org.springframework.boot:spring-boot-starter-web')
 //            {
