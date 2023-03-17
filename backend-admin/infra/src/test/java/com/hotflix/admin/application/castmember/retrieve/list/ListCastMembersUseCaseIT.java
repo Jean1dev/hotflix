@@ -1,6 +1,7 @@
 package com.hotflix.admin.application.castmember.retrieve.list;
 
 import com.hotflix.admin.IntegrationTest;
+import com.hotflix.admin.domain.Fixture;
 import com.hotflix.admin.domain.castmember.CastMember;
 import com.hotflix.admin.domain.castmember.CastMemberGateway;
 import com.hotflix.admin.domain.pagination.SearchQuery;

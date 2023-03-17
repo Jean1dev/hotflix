@@ -40,7 +40,7 @@ CREATE TABLE videos (
 
 CREATE TABLE videos_categories (
     video_id CHAR(32) NOT NULL,
-    category_id CHAR(32) NOT NULL,
+    category_id CHAR(128) NOT NULL,
     CONSTRAINT idx_vcs_video_category UNIQUE (video_id, category_id),
     CONSTRAINT fk_vcs_video_id FOREIGN KEY (video_id) REFERENCES videos (id),
     CONSTRAINT fk_vcs_category_id FOREIGN KEY (category_id) REFERENCES categories (id)
@@ -48,7 +48,7 @@ CREATE TABLE videos_categories (
 
 CREATE TABLE videos_genres (
     video_id CHAR(32) NOT NULL,
-    genre_id CHAR(32) NOT NULL,
+    genre_id CHAR(128) NOT NULL,
     CONSTRAINT idx_vgs_video_genre UNIQUE (video_id, genre_id),
     CONSTRAINT fk_vgs_video_id FOREIGN KEY (video_id) REFERENCES videos (id),
     CONSTRAINT fk_vgs_genre_id FOREIGN KEY (genre_id) REFERENCES genres (id)
@@ -56,7 +56,7 @@ CREATE TABLE videos_genres (
 
 CREATE TABLE videos_cast_members (
     video_id CHAR(32) NOT NULL,
-    cast_member_id CHAR(32) NOT NULL,
+    cast_member_id CHAR(128) NOT NULL,
     CONSTRAINT idx_vcms_video_member UNIQUE (video_id, cast_member_id),
     CONSTRAINT fk_vcms_video_id FOREIGN KEY (video_id) REFERENCES videos (id),
     CONSTRAINT fk_vcms_genre_id FOREIGN KEY (cast_member_id) REFERENCES cast_members (id)

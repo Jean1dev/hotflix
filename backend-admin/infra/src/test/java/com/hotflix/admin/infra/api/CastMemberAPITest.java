@@ -11,6 +11,7 @@ import com.hotflix.admin.application.castmember.retrieve.list.CastMemberListOutp
 import com.hotflix.admin.application.castmember.retrieve.list.DefaultListCastMembersUseCase;
 import com.hotflix.admin.application.castmember.update.DefaultUpdateCastMemberUseCase;
 import com.hotflix.admin.application.castmember.update.UpdateCastMemberOutput;
+import com.hotflix.admin.domain.Fixture;
 import com.hotflix.admin.domain.castmember.CastMember;
 import com.hotflix.admin.domain.castmember.CastMemberID;
 import com.hotflix.admin.domain.castmember.CastMemberType;

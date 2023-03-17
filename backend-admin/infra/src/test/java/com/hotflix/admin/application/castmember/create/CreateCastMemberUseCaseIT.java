@@ -1,6 +1,7 @@
 package com.hotflix.admin.application.castmember.create;
 
 import com.hotflix.admin.IntegrationTest;
+import com.hotflix.admin.domain.Fixture;
 import com.hotflix.admin.domain.castmember.CastMemberGateway;
 import com.hotflix.admin.domain.castmember.CastMemberType;
 import com.hotflix.admin.domain.exceptions.NotificationException;

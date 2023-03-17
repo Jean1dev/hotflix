@@ -1,6 +1,7 @@
 package com.hotflix.admin.infra.castmember;
 
 import com.hotflix.admin.MySQLGatewayTest;
+import com.hotflix.admin.domain.Fixture;
 import com.hotflix.admin.domain.castmember.CastMember;
 import com.hotflix.admin.domain.castmember.CastMemberID;
 import com.hotflix.admin.domain.castmember.CastMemberType;

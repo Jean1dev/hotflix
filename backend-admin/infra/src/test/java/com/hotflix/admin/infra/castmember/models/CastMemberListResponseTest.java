@@ -1,6 +1,7 @@
 package com.hotflix.admin.infra.castmember.models;
 
 import com.hotflix.admin.JacksonTest;
+import com.hotflix.admin.domain.Fixture;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

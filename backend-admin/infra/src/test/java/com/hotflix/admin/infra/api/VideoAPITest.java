@@ -617,12 +617,12 @@ public class VideoAPITest {
                 .andExpect(jsonPath("$.current_page", equalTo(expectedPage)))
                 .andExpect(jsonPath("$.per_page", equalTo(expectedPerPage)))
                 .andExpect(jsonPath("$.total", equalTo(expectedTotal)))
-                .andExpect(jsonPath("$.items", hasSize(expectedItemsCount)))
-                .andExpect(jsonPath("$.items[0].id", equalTo(aVideo.id())))
-                .andExpect(jsonPath("$.items[0].title", equalTo(aVideo.title())))
-                .andExpect(jsonPath("$.items[0].description", equalTo(aVideo.description())))
-                .andExpect(jsonPath("$.items[0].created_at", equalTo(aVideo.createdAt().toString())))
-                .andExpect(jsonPath("$.items[0].updated_at", equalTo(aVideo.updatedAt().toString())));
+                .andExpect(jsonPath("$.itens", hasSize(expectedItemsCount)))
+                .andExpect(jsonPath("$.itens[0].id", equalTo(aVideo.id())))
+                .andExpect(jsonPath("$.itens[0].title", equalTo(aVideo.title())))
+                .andExpect(jsonPath("$.itens[0].description", equalTo(aVideo.description())))
+                .andExpect(jsonPath("$.itens[0].created_at", equalTo(aVideo.createdAt().toString())))
+                .andExpect(jsonPath("$.itens[0].updated_at", equalTo(aVideo.updatedAt().toString())));
 
         final var captor = ArgumentCaptor.forClass(VideoSearchQuery.class);
 
@@ -670,12 +670,12 @@ public class VideoAPITest {
                 .andExpect(jsonPath("$.current_page", equalTo(expectedPage)))
                 .andExpect(jsonPath("$.per_page", equalTo(expectedPerPage)))
                 .andExpect(jsonPath("$.total", equalTo(expectedTotal)))
-                .andExpect(jsonPath("$.items", hasSize(expectedItemsCount)))
-                .andExpect(jsonPath("$.items[0].id", equalTo(aVideo.id())))
-                .andExpect(jsonPath("$.items[0].title", equalTo(aVideo.title())))
-                .andExpect(jsonPath("$.items[0].description", equalTo(aVideo.description())))
-                .andExpect(jsonPath("$.items[0].created_at", equalTo(aVideo.createdAt().toString())))
-                .andExpect(jsonPath("$.items[0].updated_at", equalTo(aVideo.updatedAt().toString())));
+                .andExpect(jsonPath("$.itens", hasSize(expectedItemsCount)))
+                .andExpect(jsonPath("$.itens[0].id", equalTo(aVideo.id())))
+                .andExpect(jsonPath("$.itens[0].title", equalTo(aVideo.title())))
+                .andExpect(jsonPath("$.itens[0].description", equalTo(aVideo.description())))
+                .andExpect(jsonPath("$.itens[0].created_at", equalTo(aVideo.createdAt().toString())))
+                .andExpect(jsonPath("$.itens[0].updated_at", equalTo(aVideo.updatedAt().toString())));
 
         final var captor = ArgumentCaptor.forClass(VideoSearchQuery.class);
 

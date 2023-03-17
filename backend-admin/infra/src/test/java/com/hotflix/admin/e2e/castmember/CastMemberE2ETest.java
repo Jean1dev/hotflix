@@ -1,6 +1,7 @@
 package com.hotflix.admin.e2e.castmember;
 
 import com.hotflix.admin.E2ETest;
+import com.hotflix.admin.domain.Fixture;
 import com.hotflix.admin.domain.castmember.CastMemberID;
 import com.hotflix.admin.domain.castmember.CastMemberType;
 import com.hotflix.admin.e2e.MockDsl;
