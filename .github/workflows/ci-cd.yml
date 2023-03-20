@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: deploydesexta/fc3-admin-catalogo-de-videos-java
+  IMAGE_NAME: jeanlucafp/hotflix-admin
 
 defaults:
  run:
