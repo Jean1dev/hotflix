@@ -9,10 +9,6 @@ on:
 env:
   IMAGE_NAME: jeanlucafp/hotflix-admin
 
-defaults:
- run:
-  working-directory: ./backend-admin
-
 jobs:
   tests:
     name: Tests runner
@@ -62,7 +58,7 @@ jobs:
       - name: Build & push da imagem do docker
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: ./devops/Dockerfile
           push: true
           build-args: VERSION=${{ env.BUILD_TAG }}
           tags: |
