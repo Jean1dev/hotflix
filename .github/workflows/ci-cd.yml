@@ -57,7 +57,8 @@ jobs:
       - name: Build & push da imagem do docker
         uses: docker/build-push-action@v3
         with:
-          context: "{{defaultContext}}:devops"
+          context: .
+          dockerfile: ./devops/Dockerfile
           push: true
           build-args: VERSION=${{ env.BUILD_TAG }}
           tags: |
