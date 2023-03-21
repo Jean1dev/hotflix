@@ -82,3 +82,6 @@ storage:
   catalogo-videos:
     filename-pattern: type-{type}
     location-pattern: videoId-{videoId}
+
+keycloak:
+  enabled: false
