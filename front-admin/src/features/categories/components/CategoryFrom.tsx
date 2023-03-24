@@ -29,6 +29,7 @@ export function CategoryFrom({
   handleChange,
   handleToggle,
 }: Props) {
+
   return (
     <Box p={2}>
       <form onSubmit={handleSubmit}>
@@ -39,7 +40,7 @@ export function CategoryFrom({
                 required
                 name="name"
                 label="Name"
-                value={category.name || ""}
+                value={category?.name || ""}
                 disabled={isdisabled}
                 onChange={handleChange}
                 inputProps={{ "data-testid": "name" }}
@@ -56,7 +57,7 @@ export function CategoryFrom({
                 inputProps={{ "data-testid": "description" }}
                 disabled={isdisabled}
                 onChange={handleChange}
-                value={category.description || ""}
+                value={category?.description || ""}
               />
             </FormControl>
           </Grid>
@@ -69,7 +70,7 @@ export function CategoryFrom({
                     name="is_active"
                     color="secondary"
                     onChange={handleToggle}
-                    checked={category.is_active || false}
+                    checked={category?.is_active || false}
                     inputProps={{ "aria-label": "controlled" }}
                     data-testid="is_active"
                     disabled={isdisabled}

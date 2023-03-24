@@ -38,6 +38,16 @@ export const CategoryCreate = () => {
     if (status.isSuccess) {
       enqueueSnackbar("Category created successfully", { variant: "success" });
       setIsdisabled(true);
+      setCategoryState({
+        id: "",
+        name: "",
+        is_active: true,
+        created_at: "",
+        updated_at: "",
+        deleted_at: "",
+        description: "",
+      });
+      setIsdisabled(false);
     }
     if (status.error) {
       enqueueSnackbar("Category not created", { variant: "error" });

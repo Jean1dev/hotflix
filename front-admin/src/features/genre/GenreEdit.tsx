@@ -60,7 +60,7 @@ export const GenreEdit = () => {
           genre={genreState}
           handleSubmit={handleSubmit}
           handleChange={handleChange}
-          categories={categories?.data}
+          categories={categories?.itens}
           isDisabled={isFetching || status.isLoading}
           isLoading={status.isLoading || isFetching}
         />

@@ -46,7 +46,7 @@ export const GenreCreate = () => {
 
         <GenreForm
           genre={genreState}
-          categories={categories?.data}
+          categories={categories?.itens}
           isLoading={status.isLoading}
           isDisabled={status.isLoading}
           handleSubmit={handleSubmit}

@@ -1,9 +1,11 @@
 version: '3.7'
 
 services:
+
   app:
     container_name: adm_videos_app
-    build: .
+    #build: .
+    image: jeanlucafp/hotflix-admin:latest
     profiles: ["app"]
     env_file:
       - .env.local

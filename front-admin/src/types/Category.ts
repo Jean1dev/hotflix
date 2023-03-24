@@ -1,14 +1,11 @@
 export interface Results {
-  meta: Meta;
-  links: Links;
-  data: Category[];
+  current_page: number;
+  per_page: number;
+  total: number;
+  itens: Category[];
 }
 
-export interface Result {
-  data: Category;
-  meta: Meta;
-  links: Links;
-}
+export interface Result extends Category {}
 
 export interface Category {
   id: string;

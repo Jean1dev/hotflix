@@ -20,7 +20,7 @@ function parseQueryParams(params: CategoryParams) {
   }
 
   if (params.perPage) {
-    query.append("per_page", params.perPage.toString());
+    query.append("perPage", params.perPage.toString());
   }
 
   if (params.search) {
@@ -35,7 +35,8 @@ function parseQueryParams(params: CategoryParams) {
 }
 
 function getCategories({ page = 1, perPage = 10, search = "" }) {
-  const params = { page, perPage, search, isActive: true };
+  const pageable = page - 1;
+  const params = { pageable, perPage, search, isActive: true };
 
   return `${endpointUrl}?${parseQueryParams(params)}`;
 }

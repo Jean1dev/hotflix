@@ -14,7 +14,7 @@ const Props = {
 };
 
 const mockData = {
-  data: [
+  itens: [
     {
       id: "123",
       name: "test",
@@ -25,21 +25,9 @@ const mockData = {
       deleted_at: "",
     },
   ],
-  meta: {
-    to: 1,
-    from: 1,
-    path: "http://localhost:8000/api/categories",
-    total: 1,
-    per_page: 1,
-    last_page: 1,
-    current_page: 1,
-  },
-  links: {
-    first: "http://localhost:8000/api/cast_members?page=1",
-    last: "http://localhost:8000/api/cast_members?page=1",
-    prev: "",
-    next: "",
-  },
+  current_page: 1,
+  per_page: 1,
+  total: 1,
 };
 
 describe("CategoryTable", () => {
@@ -69,7 +57,7 @@ describe("CategoryTable", () => {
         {...Props}
         data={{
           ...mockData,
-          data: [{ ...mockData.data[0], is_active: false }],
+          itens: [{ ...mockData.itens[0], is_active: false }],
         }}
       />,
       { wrapper: BrowserRouter }

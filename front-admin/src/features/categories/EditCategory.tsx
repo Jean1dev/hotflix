@@ -43,7 +43,7 @@ export const CategoryEdit = () => {
 
   useEffect(() => {
     if (category) {
-      setCategoryState(category.data);
+      setCategoryState(category);
     }
   }, [category]);
 
