@@ -78,7 +78,7 @@ export function VideosEdit() {
           isLoading={isFetching}
           isDisabled={isFetching}
           categories={categories}
-          castMembers={castMembers?.data}
+          castMembers={castMembers?.itens}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           handleAddFile={handleAddFile}

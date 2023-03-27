@@ -59,11 +59,11 @@ export function CastMemberForm({
                 data-testid="type"
               >
                 <FormControlLabel
-                  value={1}
+                  value={"DIRECTOR"}
                   control={<Radio />}
                   label="Diretor"
                 />
-                <FormControlLabel value={2} control={<Radio />} label="Actor" />
+                <FormControlLabel value={"ACTOR"} control={<Radio />} label="Actor" />
               </RadioGroup>
             </FormGroup>
           </Grid>

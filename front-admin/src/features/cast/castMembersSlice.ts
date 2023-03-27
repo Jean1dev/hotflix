@@ -13,7 +13,7 @@ const endpointUrl = "/cast_members";
 export const initialState: CastMember = {
   id: "",
   name: "",
-  type: 1,
+  type: "ACTOR",
   created_at: "",
   updated_at: "",
   deleted_at: null,
@@ -44,7 +44,7 @@ function parseQueryParams(params: CastMemberParams) {
 function getCastMembers(params: CastMemberParams) {
   const { page = 1, perPage = 10, search, type } = params;
   return `${endpointUrl}?${parseQueryParams({
-    page,
+    page: page -1,
     perPage,
     search,
     type,

@@ -33,7 +33,7 @@ export const EditCastMember = () => {
 
   useEffect(() => {
     if (castMember) {
-      setCastMemberState(castMember.data);
+      setCastMemberState(castMember);
     }
   }, [castMember]);
 

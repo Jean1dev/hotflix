@@ -62,7 +62,7 @@ export function CastMembersTable({
   ];
 
   function mapDataToGridRows(data: Results) {
-    const { data: castMembers } = data;
+    const { itens: castMembers } = data;
     return castMembers.map((castMember) => ({
       id: castMember.id,
       name: castMember.name,
@@ -103,7 +103,7 @@ export function CastMembersTable({
   }
 
   const rows = data ? mapDataToGridRows(data) : [];
-  const rowCount = data?.meta.total || 0;
+  const rowCount = data?.total || 0;
 
   return (
     <Box sx={{ display: "flex", height: 600 }}>

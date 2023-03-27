@@ -6,7 +6,7 @@ services:
     container_name: adm_videos_app
     #build: .
     #image: jeanlucafp/hotflix-admin:latest
-    image: jeanlucafp/hotflix-admin:main-11
+    image: jeanlucafp/hotflix-admin:main-13
     profiles: ["app"]
     env_file:
       - .env.local

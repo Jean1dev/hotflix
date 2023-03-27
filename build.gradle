@@ -18,10 +18,11 @@ test {
     useJUnitPlatform()
 }
 
-// jar {
-//     manifest {
-//         attributes(
-//                 'Main-Class': 'com.hotflix.admin.infra.Main'
-//         )
-//     }
-// }
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.hotflix.admin.infra.Main'
+        )
+    }
+}

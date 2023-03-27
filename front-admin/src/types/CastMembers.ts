@@ -1,39 +1,19 @@
 export interface Results {
-  data: CastMember[];
-  links: Links;
-  meta: Meta;
+  current_page: number;
+  per_page: number;
+  total: number;
+  itens: CastMember[];
 }
 
-export interface Result {
-  data: CastMember;
-  links: Links;
-  meta: Meta;
-}
+export interface Result extends CastMember {}
 
 export interface CastMember {
   id: string;
   name: string;
-  type: number;
+  type: string;
   deleted_at: null;
   created_at: string;
   updated_at: string;
-}
-
-export interface Links {
-  prev: string;
-  last: string;
-  next: string;
-  first: string;
-}
-
-export interface Meta {
-  to: number;
-  from: number;
-  path: string;
-  total: number;
-  perPage: number;
-  lastPage: number;
-  currentPage: number;
 }
 
 export interface CastMemberParams {

@@ -81,7 +81,7 @@ export const VideosCreate = () => {
           genres={genres?.data}
           isLoading={status.isLoading}
           isDisabled={status.isLoading}
-          castMembers={castMembers?.data}
+          castMembers={castMembers?.itens}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
           handleAddFile={handleAddFile}
