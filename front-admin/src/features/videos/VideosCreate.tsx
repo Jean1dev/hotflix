@@ -21,7 +21,7 @@ export const VideosCreate = () => {
   const { data: castMembers } = useGetAllCastMembersQuery();
   const [createVideo, status] = useCreateVideoMutation();
   const [videoState, setVideoState] = useState<Video>(initialState);
-  const [caregories] = useUniqueCategories(videoState, setVideoState);
+  const [categories] = useUniqueCategories(videoState, setVideoState);
   const [selectedFiles, setSelectedFiles] = useState<FileObject[]>([]);
   const dispatch = useAppDispatch();
 
@@ -49,7 +49,7 @@ export const VideosCreate = () => {
     event.preventDefault();
     const { id, ...payload } = mapVideoToForm(videoState);
     try {
-      const { data } = await createVideo(payload).unwrap();
+      const data = await createVideo(payload).unwrap();
       handleSubmitUploads(data.id);
     } catch (e) {
       enqueueSnackbar(`Error creating Video`, { variant: "error" });
@@ -77,7 +77,7 @@ export const VideosCreate = () => {
 
         <VideosForm
           video={videoState}
-          categories={caregories}
+          categories={categories}
           genres={genres?.itens}
           isLoading={status.isLoading}
           isDisabled={status.isLoading}

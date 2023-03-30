@@ -70,12 +70,12 @@ export function VideosTable({
   ];
 
   function mapDataToGridRows(data: Results) {
-    const { data: videos } = data;
+    const { itens: videos } = data;
     return videos.map((video) => ({
       id: video.id,
       title: video.title,
-      genres: video.genres,
-      categories: video.categories,
+      genres: video.genres || [],
+      categories: video.categories || [],
     }));
   }
 
@@ -171,7 +171,7 @@ export function VideosTable({
   }
 
   const rows = data ? mapDataToGridRows(data) : [];
-  const rowCount = data?.meta.total || 0;
+  const rowCount = data?.total || 0;
 
   return (
     <Box sx={{ display: "flex", height: 600 }}>

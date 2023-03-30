@@ -8,16 +8,13 @@ export type FileObject = {
 };
 
 export interface Results {
-  data: Video[];
-  links: Links;
-  meta: Meta;
+  current_page: number;
+  per_page: number;
+  total: number;
+  itens: Video[];
 }
 
-export interface Result {
-  data: Video;
-  links: Links;
-  meta: Meta;
-}
+export interface Result extends Video {}
 
 export interface Video {
   id: string;
@@ -39,23 +36,6 @@ export interface Video {
   video_file_url: string;
 }
 
-export interface Links {
-  first: string;
-  last: string;
-  prev: null;
-  next: string;
-}
-
-export interface Meta {
-  to?: number;
-  from?: number;
-  path?: string;
-  total?: number;
-  per_page?: number;
-  last_page?: number;
-  current_page?: number;
-}
-
 export interface VideoParams {
   page?: number;
   perPage?: number;
@@ -70,8 +50,9 @@ export interface VideoPayload {
   opened: boolean;
   duration: string;
   description: string;
-  genres_id?: string[];
+  published: boolean;
+  genres?: string[];
   year_launched: string;
-  categories_id?: string[];
-  cast_members_id?: string[];
+  categories?: string[];
+  cast_members?: string[];
 }

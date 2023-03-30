@@ -48,8 +48,8 @@ export function VideosEdit() {
 
   useEffect(() => {
     if (video) {
-      setVideoState(video.data);
-      setCategories(video.data.categories || []);
+      setVideoState({ genres: [], cast_members: [], categories: [], ...video });
+      setCategories(video.categories || []);
     }
   }, [video, setCategories]);
 

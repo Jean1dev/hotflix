@@ -44,7 +44,7 @@ function parseQueryParams(params: VideoParams) {
 }
 
 const getVideos = ({ page = 1, perPage = 10, search = "" }: VideoParams) => {
-  return `${endpointUrl}?${parseQueryParams({ page, perPage, search })}`;
+  return `${endpointUrl}?${parseQueryParams({ page: page -1, perPage, search })}`;
 };
 
 function deleteVideo({ id }: { id: string }) {
