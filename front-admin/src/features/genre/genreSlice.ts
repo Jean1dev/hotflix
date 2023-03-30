@@ -44,7 +44,8 @@ function parseQueryParams(params: GenreParams) {
 }
 
 function getGenres({ page = 1, perPage = 10, search = "" }) {
-  const params = { page, perPage, search };
+  const pageable = page - 1;
+  const params = { pageable, perPage, search };
   return `${endpointUrl}?${parseQueryParams(params)}`;
 }
 

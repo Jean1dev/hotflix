@@ -1,16 +1,13 @@
 import { Category } from "./Category";
 
 export interface Genres {
-  data: Genre[];
-  links: Links;
-  meta: Meta;
+  current_page: number;
+  per_page: number;
+  total: number;
+  itens: Genre[];
 }
 
-export interface Result {
-  data: Genre;
-  meta: Meta;
-  links: Links;
-}
+export interface Result extends Genre {}
 
 export interface Genre {
   id: string;
@@ -19,6 +16,7 @@ export interface Genre {
   deleted_at: null;
   created_at: string;
   updated_at: string;
+  categories_id?: string[];
   categories?: Category[];
   description?: null | string;
   pivot?: Pivot;
@@ -27,23 +25,6 @@ export interface Genre {
 export interface Pivot {
   genre_id: string;
   category_id: string;
-}
-
-export interface Links {
-  first: string;
-  last: string;
-  prev: string;
-  next: string;
-}
-
-export interface Meta {
-  current_page?: number;
-  from?: number;
-  last_page?: number;
-  path?: string;
-  per_page?: number;
-  to?: number;
-  total?: number;
 }
 
 export interface GenreParams {

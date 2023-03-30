@@ -74,7 +74,7 @@ export function VideosEdit() {
 
         <VideosForm
           video={videoState}
-          genres={genres?.data}
+          genres={genres?.itens}
           isLoading={isFetching}
           isDisabled={isFetching}
           categories={categories}

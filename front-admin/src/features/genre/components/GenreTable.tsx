@@ -51,7 +51,7 @@ export function GenresTable({
   ];
 
   function mapDataToGridRows(data: Genres) {
-    const { data: genres } = data;
+    const { itens: genres } = data;
     return genres.map((genre) => ({
       id: genre.id,
       name: genre.name,
@@ -84,7 +84,7 @@ export function GenresTable({
   }
 
   const rows = data ? mapDataToGridRows(data) : [];
-  const rowCount = data?.meta.total || 0;
+  const rowCount = data?.total || 0;
 
   return (
     <Box sx={{ display: "flex", height: 600 }}>

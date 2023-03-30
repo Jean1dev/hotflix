@@ -33,7 +33,8 @@ export const GenreEdit = () => {
 
   useEffect(() => {
     if (genre) {
-      setGenreState(genre.data);
+      //@ts-ignore
+      setGenreState({ categories: genre.categories_id.map(it => ({ id: it })), ...genre});
     }
   }, [genre]);
 

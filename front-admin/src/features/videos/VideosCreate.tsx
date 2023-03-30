@@ -78,7 +78,7 @@ export const VideosCreate = () => {
         <VideosForm
           video={videoState}
           categories={caregories}
-          genres={genres?.data}
+          genres={genres?.itens}
           isLoading={status.isLoading}
           isDisabled={status.isLoading}
           castMembers={castMembers?.itens}

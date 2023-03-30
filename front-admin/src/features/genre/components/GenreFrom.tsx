@@ -13,7 +13,6 @@ type Props = {
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
-
 export function GenreForm({
   genre,
   categories,

@@ -13,7 +13,7 @@ const Props = {
 };
 
 const mockData = {
-  data: [
+  itens: [
     {
       id: "1",
       name: "test",
@@ -29,21 +29,9 @@ const mockData = {
       },
     },
   ],
-  links: {
-    first: "http://localhost:8000/api/genres?page=1",
-    last: "http://localhost:8000/api/genres?page=1",
-    prev: "",
-    next: "",
-  },
-  meta: {
-    current_page: 1,
-    from: 1,
-    last_page: 1,
-    path: "http://localhost:8000/api/genres",
-    per_page: 15,
-    to: 1,
-    total: 1,
-  },
+  per_page: 1,
+  total: 1,
+  current_page: 1,
 };
 
 describe("GenresTable", () => {
@@ -94,9 +82,9 @@ describe("GenresTable", () => {
         {...Props}
         data={{
           ...mockData,
-          data: [
+          itens: [
             {
-              ...mockData.data[0],
+              ...mockData.itens[0],
               categories: [
                 {
                   id: "1",
