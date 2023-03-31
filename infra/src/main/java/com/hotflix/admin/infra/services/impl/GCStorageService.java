@@ -5,12 +5,16 @@ import com.google.cloud.storage.BlobInfo;
 import com.google.cloud.storage.Storage;
 import com.hotflix.admin.domain.video.Resource;
 import com.hotflix.admin.infra.services.StorageService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
 
 public class GCStorageService implements StorageService {
+
+    private static final Logger log = LoggerFactory.getLogger(GCStorageService.class);
 
     private final String bucket;
     private final Storage storage;
@@ -27,6 +31,7 @@ public class GCStorageService implements StorageService {
                 .setCrc32cFromHexString(resource.checksum())
                 .build();
 
+        log.info("iniciando upload para google cloud :{}", id);
         this.storage.create(info, resource.content());
     }
 
@@ -44,6 +49,7 @@ public class GCStorageService implements StorageService {
     @Override
     public List<String> list(final String prefix) {
         final var blobs = this.storage.list(bucket, Storage.BlobListOption.prefix(prefix));
+        log.info("quantidade de blobs recuperados :{}", blobs.toString());
 
         return StreamSupport.stream(blobs.iterateAll().spliterator(), false)
                 .map(BlobInfo::getBlobId)

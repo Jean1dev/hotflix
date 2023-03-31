@@ -30,6 +30,5 @@ export const uploadService = (params: {
   const { field, file, videoId, onUploadProgress } = params;
   const endpoint = getEndpoint(videoId);
   const data = formdata(field, file);
-
   return axios.post(endpoint, data, { onUploadProgress });
 };
