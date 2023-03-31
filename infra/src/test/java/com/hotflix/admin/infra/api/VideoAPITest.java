@@ -121,7 +121,7 @@ public class VideoAPITest {
                 .thenReturn(new CreateVideoOutput(expectedId.getValue()));
 
         // when
-        final var aRequest = multipart("/videos")
+        final var aRequest = multipart("/videos/full")
                 .file(expectedVideo)
                 .file(expectedTrailer)
                 .file(expectedBanner)
@@ -180,7 +180,7 @@ public class VideoAPITest {
                 .thenThrow(NotificationException.with(new DomainError(expectedErrorMessage)));
 
         // when
-        final var aRequest = multipart("/videos")
+        final var aRequest = multipart("/videos/full")
                 //.with(ApiTest.GENRES_JWT)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.MULTIPART_FORM_DATA);
