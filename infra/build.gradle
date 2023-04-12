@@ -1,5 +1,15 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.flywaydb:flyway-mysql:9.11.0'
+    }
+}
+
 plugins {
-    id 'java'
+    id 'java-conventions'
+    id 'jacoco-report-aggregation'
     id 'application'
     id 'org.springframework.boot' version '2.7.7'
     id 'io.spring.dependency-management' version '1.1.0'
@@ -7,15 +17,10 @@ plugins {
 }
 
 group 'com.hotflix.admin.infra'
-version '1.0-SNAPSHOT'
 
 bootJar {
     archiveName 'application.jar'
     destinationDirectory.set(file("${rootProject.buildDir}/libs"))
-}
-
-repositories {
-    mavenCentral()
 }
 
 dependencies {
@@ -68,7 +73,20 @@ flyway {
     password = System.getenv('FLYWAY_PASS') ?: '123456'
 }
 
-test {
-    useJUnitPlatform()
+testCodeCoverageReport {
+    reports {
+        xml {
+            enabled true
+            destination file("$rootDir/build/reports/jacoco/test/jacocoTestReport.xml")
+        }
+
+        html {
+            enabled true
+            destination file("$rootDir/build/reports/jacoco/test/")
+        }
+    }
 }
 
+tasks.named("jacocoTestReport") {
+    dependsOn tasks.named("testCodeCoverageReport", JacocoReport)
+}
