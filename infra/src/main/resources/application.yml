@@ -39,6 +39,12 @@ server:
       io: 4 # One IO thread per CPU core is a reasonable default: https://undertow.io/undertow-docs/undertow-docs-2.1.0/index.html#listeners-2
 
 spring:
+  flyway:
+    clean-disabled: false
+    clean-on-validation-error: false
+    locations: classpath:db/migration
+    table: schema_history
+
   datasource:
     url: jdbc:mysql://${mysql.url}/${mysql.schema}?useSSL=true&serverTimezone=UTC&characterEncoding=UTF-8
     username: ${mysql.username}

@@ -64,3 +64,25 @@ jobs:
           tags: |
             ${{ env.IMAGE_NAME }}:latest
             ${{ env.IMAGE_NAME }}:${{ env.BUILD_TAG }}
+
+  k8s:
+    name: deploy sandbox env
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Definindo o contexto do Kubernetes
+        uses: Azure/k8s-set-context@v1
+        with:
+          kubeconfig: ${{ secrets.K8S_CONFIG }}
+      - name: override vars in k8s.yaml
+        run : |
+          sed -i 's/<DOCKER_IMAGE>/'${{ env.IMAGE_NAME }}:${{ env.BUILD_TAG }}'/g' k8s/deployment.yaml
+      - name: Deploy API
+        uses: Azure/k8s-deploy@v1.3
+        with:
+          images: ${{ env.IMAGE_NAME }}:${{ env.BUILD_TAG }}
+          manifests: |
+            k8s/deployment.yaml
+            k8s/service.yaml       
+

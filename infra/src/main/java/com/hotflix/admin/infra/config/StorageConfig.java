@@ -1,4 +1,4 @@
-package com.hotflix.admin.infra.config.properties;
+package com.hotflix.admin.infra.config;
 
 import com.google.cloud.storage.Storage;
 import com.hotflix.admin.infra.config.properties.google.GoogleStorageProperties;
