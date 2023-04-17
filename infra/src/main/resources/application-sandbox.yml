@@ -10,9 +10,9 @@ keycloak:
 
 mysql:
   username: root
-  password: 123456
-  schema: adm_videos
-  url: localhost:3306
+  password: U3MMbFVFlQQRkhILS6HV
+  schema: railway
+  url: containers.railway.app:6849
 
 server:
   port: 8080

@@ -28,7 +28,7 @@ dependencies {
     implementation(project(":application"))
 
     //TEMP
-    implementation 'io.vavr:vavr:0.10.4'
+    //implementation 'io.vavr:vavr:0.10.4'
 
     implementation('org.springframework.boot:spring-boot-starter-web')
 //            {
@@ -37,6 +37,10 @@ dependencies {
 
     implementation('com.google.cloud:google-cloud-storage:2.17.1')
     implementation('com.google.guava:guava:31.1-jre')
+
+    // https://mvnrepository.com/artifact/org.flywaydb/flyway-core
+    // para rodar as migrations de forma automatica
+    //implementation("org.flywaydb:flyway-core:9.16.3")
 
     implementation('org.springframework.boot:spring-boot-starter-security')
     implementation('org.springframework.boot:spring-boot-starter-oauth2-resource-server')
