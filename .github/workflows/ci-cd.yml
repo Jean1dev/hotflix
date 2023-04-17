@@ -80,7 +80,7 @@ jobs:
           echo BUILD_TAG=$(echo ${{ github.head_ref || github.ref_name }} | sed "s,/,_,g")-${{ github.run_number }} >> $GITHUB_ENV
       - name: override vars in k8s.yaml
         run : |
-          sed -i 's/<DOCKER_IMAGE>/'${{ env.IMAGE_NAME }}:${{ env.BUILD_TAG }}'/g' k8s/deployment.yaml
+          sed -i 's|<DOCKER_IMAGE>|'${{ env.IMAGE_NAME }}:${{ env.BUILD_TAG }}'|g' k8s/deployment.yaml
       - name: Deploy API
         uses: Azure/k8s-deploy@v1.3
         with:
