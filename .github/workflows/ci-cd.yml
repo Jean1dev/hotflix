@@ -75,6 +75,9 @@ jobs:
         uses: Azure/k8s-set-context@v1
         with:
           kubeconfig: ${{ secrets.K8S_CONFIG }}
+      - name: Set BUILD_TAG
+        run: |
+          echo BUILD_TAG=$(echo ${{ github.head_ref || github.ref_name }} | sed "s,/,_,g")-${{ github.run_number }} >> $GITHUB_ENV
       - name: override vars in k8s.yaml
         run : |
           sed -i 's/<DOCKER_IMAGE>/'${{ env.IMAGE_NAME }}:${{ env.BUILD_TAG }}'/g' k8s/deployment.yaml
