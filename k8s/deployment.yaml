@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotflix-admin
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: "25%"
+      maxUnavailable: "25%"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotflix-admin
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8090"
+      labels:
+        app: hotflix-admin
+    spec:
+      containers:
+        - name: hotflix-admin
+          image: <DOCKER_IMAGE>
+          ports:
+            - containerPort: 8080
+          env:
+            OVERRIDE_PROFILE: sandbox
