@@ -16,7 +16,7 @@ spec:
         image: quay.io/keycloak/keycloak:20.0.3
         ports:
         - containerPort: 8080
-        resources: {}
+        command: [start-dev]
         env:
           - name: KEYCLOAK_ADMIN
             value: admin
