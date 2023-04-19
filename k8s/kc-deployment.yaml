@@ -1,24 +1,26 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: keycloack
+  name: keycloak
+  labels:
+    app: keycloak
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: keycloack
+      app: keycloak
   template:
     metadata:
       labels:
-        app: keycloack
+        app: keycloak
     spec:
       containers:
-      - name: keycloack
+      - name: keycloak
         image: quay.io/keycloak/keycloak:20.0.3
+        env:
+        - name: KEYCLOAK_ADMIN
+          value: "admin"
+        - name: KEYCLOAK_ADMIN_PASSWORD
+          value: "admin"
         ports:
         - containerPort: 8080
-        command: [start-dev]
-        env:
-          - name: KEYCLOAK_ADMIN
-            value: admin
-          - name: KEYCLOAK_ADMIN_PASSWORD
-            value: admin
