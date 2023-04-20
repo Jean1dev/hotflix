@@ -10,7 +10,7 @@ export const updateVideo = createAsyncThunk(
       const progress = uploadProgress(progressEvent);
       thunkAPI.dispatch(setUploadProgress({ id, progress }));
     };
-    
+
     try {
       const params = { videoId, id, file, field, onUploadProgress };
       const response = await uploadService(params);
