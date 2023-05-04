@@ -15,7 +15,7 @@ mysql:
   url: containers.railway.app:6849
 
 server:
-  port: 8080
+  port: ${PORT}
   undertow:
     threads:
       worker: 10
