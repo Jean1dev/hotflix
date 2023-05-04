@@ -86,6 +86,7 @@ jobs:
     name: deploy sandbox env
     needs: [build]
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/k8s'
     steps:
       - uses: actions/checkout@v2
       - name: Definindo o contexto do Kubernetes

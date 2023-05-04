@@ -42,3 +42,7 @@ task e2eTests(type: Test, group: "verification") {
         includeTags("e2eTest")
     }
 }
+
+task stage {
+    dependsOn build
+}
