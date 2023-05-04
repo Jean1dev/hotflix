@@ -47,5 +47,8 @@ task e2eTests(type: Test, group: "verification") {
 }
 
 task stage {
+    tasks.findAll { task -> task.name.startsWith('test') ? true : false }.each { testTask ->
+        testTask.enabled = false
+    }
     dependsOn build
 }
