@@ -27,7 +27,6 @@ export const KeycloakProvider = ({
     };
 
     keycloak.onTokenExpired = () => {
-        alert('refresh token')
       updateToken(true);
     };
 

@@ -1,6 +1,6 @@
 amqp:
   admin:
-    auto-create: false
+    auto-create: true
   queues:
     video-created:
       exchange: video.events
@@ -73,6 +73,7 @@ spring:
     port: ${amqp.port}
     username: ${amqp.username}
     password: ${amqp.password}
+    virtual-host: ${amqp.vhost}
   servlet:
     multipart:
       max-file-size: 10GB # Max file size.
