@@ -117,3 +117,12 @@ func (j *JobService) failJob(error error) error {
 
 	return error
 }
+
+func (v *VideoService) insertVideo() error {
+	_, err := v.VideoRepository.Insert(v.Video)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
