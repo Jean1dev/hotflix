@@ -4,6 +4,7 @@ import (
 	"encoder/application/repository"
 	"encoder/domain"
 	"errors"
+	"log"
 	"os"
 	"strconv"
 )
@@ -94,6 +95,7 @@ func (j *JobService) performUpload() error {
 
 func (j *JobService) changeStatus(status string) error {
 	var err error
+	log.Printf("Atualizando status %s", status)
 
 	j.Job.Status = status
 	j.Job, err = j.JobRepo.Update(j.Job)
