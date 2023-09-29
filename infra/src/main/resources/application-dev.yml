@@ -5,10 +5,11 @@ amqp:
   port: 5672
   username: adm_videos
   password: 123456
+  vhost: /
 
 keycloak:
-  realm: hotflix
-  host: http://localhost:8443
+  realm: caixinha-auth-server
+  host: https://lemur-5.cloud-iam.com/auth
 
 mysql:
   username: root

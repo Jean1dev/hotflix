@@ -20,20 +20,21 @@ type RabbitMQ struct {
 	Channel           *amqp.Channel
 }
 
-func NewAmqp() *RabbitMQ {
-	amqpArgs := amqp.Table{}
-	amqpArgs["x-dead-letter-exchange"] = os.Getenv("AMQP_DLX")
+func NewRabbitMQ() *RabbitMQ {
+
+	rabbitMQArgs := amqp.Table{}
+	rabbitMQArgs["x-dead-letter-exchange"] = os.Getenv("RABBITMQ_DLX")
 
 	rabbitMQ := RabbitMQ{
-		User:              os.Getenv("AMQP_DEFAULT_USER"),
-		Password:          os.Getenv("AMQP_PASS"),
-		Host:              os.Getenv("AMQP_HOST"),
-		Port:              os.Getenv("AMQP_PORT"),
-		Vhost:             os.Getenv("AMQP_VHOST"),
-		ConsumerQueueName: os.Getenv("AMQP_CONSUMER_QUEUE"),
-		ConsumerName:      os.Getenv("AMQP_CONSUMER_NAME"),
+		User:              os.Getenv("RABBITMQ_DEFAULT_USER"),
+		Password:          os.Getenv("RABBITMQ_DEFAULT_PASS"),
+		Host:              os.Getenv("RABBITMQ_DEFAULT_HOST"),
+		Port:              os.Getenv("RABBITMQ_DEFAULT_PORT"),
+		Vhost:             os.Getenv("RABBITMQ_DEFAULT_VHOST"),
+		ConsumerQueueName: os.Getenv("RABBITMQ_CONSUMER_QUEUE_NAME"),
+		ConsumerName:      os.Getenv("RABBITMQ_CONSUMER_NAME"),
 		AutoAck:           false,
-		Args:              amqpArgs,
+		Args:              rabbitMQArgs,
 	}
 
 	return &rabbitMQ
@@ -42,10 +43,10 @@ func NewAmqp() *RabbitMQ {
 func (r *RabbitMQ) Connect() *amqp.Channel {
 	dsn := "amqp://" + r.User + ":" + r.Password + "@" + r.Host + ":" + r.Port + r.Vhost
 	conn, err := amqp.Dial(dsn)
-	failOnError(err, "Failed to connect amqp")
+	failOnError(err, "Failed to connect to RabbitMQ")
 
 	r.Channel, err = conn.Channel()
-	failOnError(err, "Failed to open channel")
+	failOnError(err, "Failed to open a channel")
 
 	return r.Channel
 }

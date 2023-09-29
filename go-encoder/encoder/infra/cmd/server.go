@@ -25,11 +25,11 @@ func init() {
 
 	db.AutoMigrateDb = autoMigrateDb
 	db.Debug = debug
-	db.DbTypeTest = os.Getenv("")
-	db.Dsn = os.Getenv("")
-	db.DbTypeTest = os.Getenv("")
-	db.DbType = os.Getenv("")
-	db.Env = os.Getenv("")
+	db.DsnTest = os.Getenv("DSN_TEST")
+	db.Dsn = os.Getenv("DSN")
+	db.DbTypeTest = os.Getenv("DB_TYPE_TEST")
+	db.DbType = os.Getenv("DB_TYPE")
+	db.Env = os.Getenv("ENV")
 }
 
 func main() {
@@ -43,7 +43,7 @@ func main() {
 
 	defer dbConnection.Close()
 
-	rabbitMQ := queue.NewAmqp()
+	rabbitMQ := queue.NewRabbitMQ()
 	ch := rabbitMQ.Connect()
 
 	defer ch.Close()
