@@ -1,6 +1,7 @@
 package com.fullcycle.catalogo.infrastructure.configuration.usecases;
 
 import com.fullcycle.catalogo.application.category.delete.DeleteCategoryUseCase;
+import com.fullcycle.catalogo.application.category.get.GetAllByIdUseCase;
 import com.fullcycle.catalogo.application.category.list.ListCategoryUseCase;
 import com.fullcycle.catalogo.application.category.save.SaveCategoryUseCase;
 import com.fullcycle.catalogo.domain.category.CategoryGateway;
@@ -9,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Objects;
 
-@Configuration
+@Configuration(enforceUniqueMethods = false)
 public class CategoryUseCasesConfig {
 
     private final CategoryGateway categoryGateway;
@@ -31,5 +32,10 @@ public class CategoryUseCasesConfig {
     @Bean
     SaveCategoryUseCase saveCategoryUseCase() {
         return new SaveCategoryUseCase(categoryGateway);
+    }
+
+    @Bean
+    GetAllByIdUseCase getAllByIdUseCase() {
+        return new GetAllByIdUseCase(categoryGateway);
     }
 }
