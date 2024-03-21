@@ -21,7 +21,7 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Run application tests
-        run: ./gradlew test
+        run: cd backend-admin/ && ./gradlew test
 
   front_end:
 
@@ -58,6 +58,7 @@ jobs:
         uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
         with:
           arguments: clean build -x test
+          build-root-directory: backend-admin/
       - name: Set BUILD_TAG
         run: |
           echo BUILD_TAG=$(echo ${{ github.head_ref || github.ref_name }} | sed "s,/,_,g")-${{ github.run_number }} >> $GITHUB_ENV
@@ -74,7 +75,7 @@ jobs:
       - name: Build & push da imagem do docker
         uses: docker/build-push-action@v3
         with:
-          context: .
+          context: backend-admin/
           #dockerfile: ./devops/Dockerfile
           push: true
           build-args: VERSION=${{ env.BUILD_TAG }}
