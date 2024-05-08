@@ -27,7 +27,7 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Run application tests
-        run: ./gradlew test
+        run: cd backend-admin/ && ./gradlew test
 
   front_end:
 
