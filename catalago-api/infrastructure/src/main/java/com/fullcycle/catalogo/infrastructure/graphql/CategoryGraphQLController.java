@@ -1,14 +1,16 @@
 package com.fullcycle.catalogo.infrastructure.graphql;
 
-import com.fullcycle.catalogo.application.category.list.ListCategoryOutput;
 import com.fullcycle.catalogo.application.category.list.ListCategoryUseCase;
 import com.fullcycle.catalogo.application.category.save.SaveCategoryUseCase;
-import com.fullcycle.catalogo.domain.category.Category;
 import com.fullcycle.catalogo.domain.category.CategorySearchQuery;
-import com.fullcycle.catalogo.infrastructure.category.models.CategoryInput;
+import com.fullcycle.catalogo.infrastructure.category.GqlCategoryPresenter;
+import com.fullcycle.catalogo.infrastructure.category.models.GqlCategoryInput;
+import com.fullcycle.catalogo.infrastructure.category.models.GqlCategory;
+import com.fullcycle.catalogo.infrastructure.configuration.security.Roles;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 
 import java.util.List;
@@ -29,7 +31,8 @@ public class CategoryGraphQLController {
     }
 
     @QueryMapping
-    public List<ListCategoryOutput> categories(
+    @Secured({Roles.ROLE_ADMIN, Roles.ROLE_SUBSCRIBER, Roles.ROLE_CATEGORIES})
+    public List<GqlCategory> categories(
             @Argument final String search,
             @Argument final int page,
             @Argument final int perPage,
@@ -40,11 +43,14 @@ public class CategoryGraphQLController {
         final var aQuery =
                 new CategorySearchQuery(page, perPage, search, sort, direction);
 
-        return this.listCategoryUseCase.execute(aQuery).data();
+        return this.listCategoryUseCase.execute(aQuery)
+                .map(GqlCategoryPresenter::present)
+                .data();
     }
 
     @MutationMapping
-    public Category saveCategory(@Argument final CategoryInput input) {
-        return this.saveCategoryUseCase.execute(input.toCategory());
+    @Secured({Roles.ROLE_ADMIN, Roles.ROLE_SUBSCRIBER, Roles.ROLE_CATEGORIES})
+    public GqlCategory saveCategory(@Argument final GqlCategoryInput input) {
+        return GqlCategoryPresenter.present(this.saveCategoryUseCase.execute(input.toCategory()));
     }
 }
