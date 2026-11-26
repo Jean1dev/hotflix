@@ -2,8 +2,8 @@ package com.hotflix.admin.infra.video.persistence;
 
 import com.hotflix.admin.domain.video.Rating;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 
 @Converter(autoApply = true)
 public class RatingConverter implements AttributeConverter<Rating, String> {

@@ -2,7 +2,7 @@ package com.hotflix.admin.infra.genre.persistence;
 
 import com.hotflix.admin.domain.category.CategoryId;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity

@@ -22,14 +22,22 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Collections;
 
-@EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
+@EmbeddedKafka(partitions = 1, topics = {
+        "adm_videos_mysql.adm_videos.categories",
+        "adm_videos_mysql.adm_videos.genres",
+        "adm_videos_mysql.adm_videos.cast_members",
+        "adm_videos_mysql.adm_videos.videos"
+})
 @ActiveProfiles("test-integration")
 @EnableAutoConfiguration(exclude = {
         ElasticsearchRepositoriesAutoConfiguration.class,
 })
 @SpringBootTest(
         classes = {WebServerConfig.class, IntegrationTestConfiguration.class},
-        properties = {"kafka.bootstrap-servers=${spring.embedded.kafka.brokers}"}
+        properties = {
+                "kafka.bootstrap-servers=${spring.embedded.kafka.brokers}",
+                "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}"
+        }
 )
 @Tag("integrationTest")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

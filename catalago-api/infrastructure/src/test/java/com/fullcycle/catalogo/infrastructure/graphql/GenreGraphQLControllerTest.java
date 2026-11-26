@@ -176,10 +176,10 @@ public class GenreGraphQLControllerTest {
         final var expectedCategories = Set.of("c1", "c2");
         final var expectedDates = InstantUtils.now();
 
-        final var input = Map.of(
+        final var input = Map.<String, Object>of(
                 "id", expectedId,
                 "name", expectedName,
-                "active", String.valueOf(expectedIsActive),
+                "active", expectedIsActive,
                 "categories", expectedCategories,
                 "createdAt", expectedDates.toString(),
                 "updatedAt", expectedDates.toString(),
@@ -226,10 +226,10 @@ public class GenreGraphQLControllerTest {
         final var expectedCategories = Set.of("c1", "c2");
         final var expectedDates = InstantUtils.now();
 
-        final var input = Map.of(
+        final var input = Map.<String, Object>of(
                 "id", expectedId,
                 "name", expectedName,
-                "active", String.valueOf(expectedIsActive),
+                "active", expectedIsActive,
                 "categories", expectedCategories,
                 "createdAt", expectedDates.toString(),
                 "updatedAt", expectedDates.toString()

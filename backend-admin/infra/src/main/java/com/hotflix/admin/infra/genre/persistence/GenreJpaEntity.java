@@ -4,14 +4,14 @@ import com.hotflix.admin.domain.category.CategoryId;
 import com.hotflix.admin.domain.genre.Genre;
 import com.hotflix.admin.domain.genre.GenreID;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.Instant;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static javax.persistence.CascadeType.ALL;
-import static javax.persistence.FetchType.EAGER;
+import static jakarta.persistence.CascadeType.ALL;
+import static jakarta.persistence.FetchType.EAGER;
 
 @Entity(name = "Genre")
 @Table(name = "genres")

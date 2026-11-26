@@ -13,7 +13,7 @@
 
 ## Ferramentas necessárias
 
-- JDK 21
+- JDK 25
 - IDE de sua preferência
 - Docker
 

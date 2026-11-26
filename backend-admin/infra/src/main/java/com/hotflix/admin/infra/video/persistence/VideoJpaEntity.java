@@ -8,7 +8,7 @@ import com.hotflix.admin.domain.video.Rating;
 import com.hotflix.admin.domain.video.Video;
 import com.hotflix.admin.domain.video.VideoID;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.Instant;
 import java.time.Year;
 import java.util.HashSet;

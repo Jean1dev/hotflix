@@ -1,6 +1,5 @@
 package com.hotflix.admin.infra.config;
 
-import com.nimbusds.jose.shaded.json.JSONObject;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,26 +39,23 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(final HttpSecurity http) throws Exception {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(authorize -> {
-                    authorize
-                            .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                            .antMatchers("/swagger-ui*").permitAll()
-                            .antMatchers("/cast_members*").hasAnyRole(ROLE_ADMIN, ROLE_CAST_MEMBERS)
-                            .antMatchers("/categories*").hasAnyRole(ROLE_ADMIN, ROLE_CATEGORIES)
-                            .antMatchers("/genres*").hasAnyRole(ROLE_ADMIN, ROLE_GENRES)
-                            .antMatchers("/videos*").hasAnyRole(ROLE_ADMIN, ROLE_VIDEOS);
-                            //.anyRequest().authenticated();
-                })
-                .oauth2ResourceServer(oauth -> {
-                    oauth.jwt()
-                            .jwtAuthenticationConverter(new KeycloakJwtConverter());
-                })
-                .sessionManagement(session -> {
-                    session.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-                })
-                .headers(headers -> {
-                    headers.frameOptions().sameOrigin();
-                })
+                .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers("/swagger-ui*", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .requestMatchers("/cast_members*").hasAnyRole(ROLE_ADMIN, ROLE_CAST_MEMBERS)
+                        .requestMatchers("/categories*").hasAnyRole(ROLE_ADMIN, ROLE_CATEGORIES)
+                        .requestMatchers("/genres*").hasAnyRole(ROLE_ADMIN, ROLE_GENRES)
+                        .requestMatchers("/videos*").hasAnyRole(ROLE_ADMIN, ROLE_VIDEOS)
+                )
+                .oauth2ResourceServer(oauth -> oauth.jwt(jwt ->
+                        jwt.jwtAuthenticationConverter(new KeycloakJwtConverter())
+                ))
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
+                .headers(headers ->
+                        headers.frameOptions(frame -> frame.sameOrigin())
+                )
                 .build();
     }
 
@@ -108,7 +104,9 @@ public class SecurityConfig {
             final Function<Map.Entry<String, Object>, Stream<String>> mapResource =
                     resource -> {
                         final var key = resource.getKey();
-                        final var value = (JSONObject) resource.getValue();
+                        @SuppressWarnings("unchecked")
+                        final var value = (Map<String, Object>) resource.getValue();
+                        @SuppressWarnings("unchecked")
                         final var roles = (Collection<String>) value.get(ROLES);
                         return roles.stream().map(role -> key.concat(SEPARATOR).concat(role));
                     };
@@ -119,7 +117,7 @@ public class SecurityConfig {
                             .toList();
 
             return Optional.ofNullable(jwt.getClaimAsMap(RESOURCE_ACCESS))
-                    .map(resources -> resources.entrySet())
+                    .map(Map::entrySet)
                     .map(mapResources)
                     .orElse(Collections.emptyList())
                     .stream();
@@ -127,7 +125,11 @@ public class SecurityConfig {
 
         private Stream<String> extractRealmRoles(final Jwt jwt) {
             return Optional.ofNullable(jwt.getClaimAsMap(REALM_ACCESS))
-                    .map(resource -> (Collection<String>) resource.get(ROLES))
+                    .map(resource -> {
+                        @SuppressWarnings("unchecked")
+                        final var roles = (Collection<String>) resource.get(ROLES);
+                        return roles;
+                    })
                     .orElse(Collections.emptyList())
                     .stream();
         }

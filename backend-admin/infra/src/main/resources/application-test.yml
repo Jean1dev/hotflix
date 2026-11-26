@@ -1,4 +1,5 @@
 keycloak:
+  enabled: false
   realm: test
   host: http://test:8443
 
@@ -11,7 +12,9 @@ spring:
     username: root
     password: 123456
     url: jdbc:h2:mem:adm_videos_test;MODE=MYSQL;DATABASE_TO_LOWER=TRUE # É possível persistir em um arquivo alterando "mem:adm_videos_test" para "file:./.h2/dev"
-#  jpa:
+  jpa:
+    properties:
+      "[hibernate.check_nullability]": true
 #    hibernate:
 #      ddl-auto: create
 

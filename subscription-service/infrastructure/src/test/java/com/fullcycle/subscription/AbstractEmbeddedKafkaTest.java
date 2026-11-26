@@ -20,11 +20,14 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Collections;
 
-@EmbeddedKafka(partitions = 1, brokerProperties = {"listeners=PLAINTEXT://localhost:9092", "port=9092"})
+@EmbeddedKafka(partitions = 1, topics = {"subscription.subscription.events"})
 @ActiveProfiles("test-integration")
 @SpringBootTest(
         classes = {WebServerConfig.class, IntegrationTestConfiguration.class},
-        properties = {"kafka.bootstrap-servers=${spring.embedded.kafka.brokers}"}
+        properties = {
+                "kafka.bootstrap-servers=${spring.embedded.kafka.brokers}",
+                "spring.kafka.bootstrap-servers=${spring.embedded.kafka.brokers}"
+        }
 )
 @Tag("integrationTest")
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)

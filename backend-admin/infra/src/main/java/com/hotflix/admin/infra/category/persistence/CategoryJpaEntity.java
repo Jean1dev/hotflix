@@ -4,10 +4,11 @@ package com.hotflix.admin.infra.category.persistence;
 import com.hotflix.admin.domain.category.Category;
 import com.hotflix.admin.domain.category.CategoryId;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.Instant;
 
 @Entity(name = "Category")
@@ -18,6 +19,7 @@ public class CategoryJpaEntity {
     @Column(name = "id", nullable = false)
     private String id;
 
+    @Basic(optional = false)
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -27,9 +29,11 @@ public class CategoryJpaEntity {
     @Column(name = "active", nullable = false)
     private boolean active;
 
+    @Basic(optional = false)
     @Column(name = "created_at", nullable = false, columnDefinition = "DATETIME(6)")
     private Instant createdAt;
 
+    @Basic(optional = false)
     @Column(name = "updated_at", nullable = false, columnDefinition = "DATETIME(6)")
     private Instant updatedAt;
 

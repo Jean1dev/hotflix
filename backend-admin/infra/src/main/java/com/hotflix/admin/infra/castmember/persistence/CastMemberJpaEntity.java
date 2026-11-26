@@ -4,7 +4,7 @@ import com.hotflix.admin.domain.castmember.CastMember;
 import com.hotflix.admin.domain.castmember.CastMemberID;
 import com.hotflix.admin.domain.castmember.CastMemberType;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.Instant;
 
 @Entity(name = "CastMember")

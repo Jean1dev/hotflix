@@ -2,10 +2,10 @@ package com.hotflix.admin.infra.video.persistence;
 
 import com.hotflix.admin.domain.video.ImageMedia;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity(name = "ImageMedia")
 @Table(name = "videos_image_media")
