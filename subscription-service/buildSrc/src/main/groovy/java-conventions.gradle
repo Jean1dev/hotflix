@@ -5,16 +5,18 @@ plugins {
 
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = JavaVersion.VERSION_21
-targetCompatibility = JavaVersion.VERSION_21
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
 
 repositories {
     mavenCentral()
 }
 
 ext {
-    junit = "5.10.2"
-    mockito = "5.11.0"
+    junit = "5.12.2"
+    mockito = "5.20.0"
     snakeyaml = "2.2"
     vavr = "0.10.4"
 }
@@ -30,10 +32,11 @@ dependencies {
     testImplementation("org.mockito:mockito-junit-jupiter:$mockito")
 
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junit")
+    testRuntimeOnly('org.junit.platform:junit-platform-launcher:1.12.2')
 }
 
 jacoco {
-    toolVersion = "0.8.11"
+    toolVersion = "0.8.16"
 }
 
 tasks.named("test") {

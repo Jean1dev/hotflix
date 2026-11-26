@@ -3,7 +3,7 @@ package com.hotflix.admin.infra.video.persistence;
 import com.hotflix.admin.domain.video.AudioVideoMedia;
 import com.hotflix.admin.domain.video.MediaStatus;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity(name = "AudioVideoMedia")
 @Table(name = "videos_video_media")

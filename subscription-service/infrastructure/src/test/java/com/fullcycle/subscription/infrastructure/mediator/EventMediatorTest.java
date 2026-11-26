@@ -1,9 +1,11 @@
 package com.fullcycle.subscription.infrastructure.mediator;
 
+import com.fullcycle.subscription.domain.DomainEvent;
 import com.fullcycle.subscription.domain.Fixture;
 import com.fullcycle.subscription.domain.UnitTest;
 import com.fullcycle.subscription.domain.account.AccountCreated;
 import com.fullcycle.subscription.infrastructure.gateway.repository.EventJdbcRepository;
+import com.fullcycle.subscription.infrastructure.observer.Publisher;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -17,6 +19,9 @@ class EventMediatorTest extends UnitTest {
     @Mock
     private EventJdbcRepository eventRepository;
 
+    @Mock
+    private Publisher<DomainEvent> domainEventPublisher;
+
     @InjectMocks
     private EventMediator eventMediator;
 
@@ -28,6 +33,7 @@ class EventMediatorTest extends UnitTest {
         when(eventRepository.eventOfIdAndUnprocessed(expectedEventId))
                 .thenReturn(Optional.of(new AccountCreated(Fixture.Accounts.john())));
 
+        when(domainEventPublisher.publish(any())).thenReturn(true);
         doNothing().when(eventRepository).markAsProcessed(expectedEventId);
 
         // when

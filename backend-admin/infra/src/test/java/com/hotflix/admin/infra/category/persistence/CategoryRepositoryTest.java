@@ -17,7 +17,7 @@ public class CategoryRepositoryTest {
     @Test
     public void givenAnInvalidNullName_whenCallsSave_shouldReturnError() {
         final var expectedPropertyName = "name";
-        final var expectedMessage = "not-null property references a null or transient value : com.hotflix.admin.infra.category.persistence.CategoryJpaEntity.name";
+        final var expectedMessage = "not-null property references a null or transient value: com.hotflix.admin.infra.category.persistence.CategoryJpaEntity.name";
 
         final var aCategory = Category.newCategory("Filmes", "A categoria mais assistida", true);
 
@@ -25,7 +25,7 @@ public class CategoryRepositoryTest {
         anEntity.setName(null);
 
         final var actualException =
-                Assertions.assertThrows(DataIntegrityViolationException.class, () -> categoryRepository.save(anEntity));
+                Assertions.assertThrows(DataIntegrityViolationException.class, () -> categoryRepository.saveAndFlush(anEntity));
 
         final var actualCause =
                 Assertions.assertInstanceOf(PropertyValueException.class, actualException.getCause());
@@ -37,7 +37,7 @@ public class CategoryRepositoryTest {
     @Test
     public void givenAnInvalidNullCreatedAt_whenCallsSave_shouldReturnError() {
         final var expectedPropertyName = "createdAt";
-        final var expectedMessage = "not-null property references a null or transient value : com.hotflix.admin.infra.category.persistence.CategoryJpaEntity.createdAt";
+        final var expectedMessage = "not-null property references a null or transient value: com.hotflix.admin.infra.category.persistence.CategoryJpaEntity.createdAt";
 
         final var aCategory = Category.newCategory("Filmes", "A categoria mais assistida", true);
 
@@ -45,7 +45,7 @@ public class CategoryRepositoryTest {
         anEntity.setCreatedAt(null);
 
         final var actualException =
-                Assertions.assertThrows(DataIntegrityViolationException.class, () -> categoryRepository.save(anEntity));
+                Assertions.assertThrows(DataIntegrityViolationException.class, () -> categoryRepository.saveAndFlush(anEntity));
 
         final var actualCause =
                 Assertions.assertInstanceOf(PropertyValueException.class, actualException.getCause());
@@ -57,7 +57,7 @@ public class CategoryRepositoryTest {
     @Test
     public void givenAnInvalidNullUpdatedAt_whenCallsSave_shouldReturnError() {
         final var expectedPropertyName = "updatedAt";
-        final var expectedMessage = "not-null property references a null or transient value : com.hotflix.admin.infra.category.persistence.CategoryJpaEntity.updatedAt";
+        final var expectedMessage = "not-null property references a null or transient value: com.hotflix.admin.infra.category.persistence.CategoryJpaEntity.updatedAt";
 
         final var aCategory = Category.newCategory("Filmes", "A categoria mais assistida", true);
 
@@ -65,7 +65,7 @@ public class CategoryRepositoryTest {
         anEntity.setUpdatedAt(null);
 
         final var actualException =
-                Assertions.assertThrows(DataIntegrityViolationException.class, () -> categoryRepository.save(anEntity));
+                Assertions.assertThrows(DataIntegrityViolationException.class, () -> categoryRepository.saveAndFlush(anEntity));
 
         final var actualCause =
                 Assertions.assertInstanceOf(PropertyValueException.class, actualException.getCause());

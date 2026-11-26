@@ -1,5 +1,6 @@
 package com.hotflix.admin;
 
+import com.hotflix.admin.infra.config.LocalSecurityConfig;
 import com.hotflix.admin.infra.config.ObjectMapperConfig;
 import org.junit.jupiter.api.Tag;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -14,7 +15,7 @@ import java.lang.annotation.*;
 @Inherited
 @ActiveProfiles("test")
 @WebMvcTest
-@Import(ObjectMapperConfig.class)
+@Import({ObjectMapperConfig.class, LocalSecurityConfig.class})
 @Tag("integrationTest")
 public @interface ControllerTest {
 

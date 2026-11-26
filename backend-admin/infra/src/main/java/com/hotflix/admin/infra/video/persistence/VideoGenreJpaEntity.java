@@ -2,7 +2,7 @@ package com.hotflix.admin.infra.video.persistence;
 
 import com.hotflix.admin.domain.genre.GenreID;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity(name = "VideoGenre")

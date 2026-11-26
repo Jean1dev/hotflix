@@ -36,7 +36,7 @@ public class GenreE2ETest implements MockDsl {
     private GenreRepository genreRepository;
 
     @Container
-    private static final MySQLContainer MYSQL_CONTAINER = new MySQLContainer("mysql:latest")
+    private static final MySQLContainer<?> MYSQL_CONTAINER = new MySQLContainer<>("mysql:8.0")
             .withPassword("123456")
             .withUsername("root")
             .withDatabaseName("adm_videos");

@@ -2,7 +2,7 @@ package com.hotflix.admin.infra.video.persistence;
 
 import com.hotflix.admin.domain.castmember.CastMemberID;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Objects;
 
 @Entity(name = "VideoCastMember")
